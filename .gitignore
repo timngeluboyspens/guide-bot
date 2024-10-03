@@ -3,3 +3,4 @@
 .venv/
 .env
 vector_store
+test.py

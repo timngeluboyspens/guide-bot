@@ -4,10 +4,17 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.memory import ConversationBufferMemory
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_community.vectorstores import FAISS
+from langchain_groq import ChatGroq
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEmbeddings, HuggingFaceEndpoint, HuggingFacePipeline
-from langchain_google_genai import ChatGoogleGenerativeAI
+from unstructured.partition.auto import partition
 
+# Embeddings
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'})
+
+# Extracting text from uploaded file
+def extract_text_from_file(file_path):    
+    elements = partition(filename=file_path)
+    return "\n\n".join([str(el) for el in elements])
 
 # Function to handle conversation with the chatbot
 def conversation_chat(query, chain, history):
@@ -16,14 +23,14 @@ def conversation_chat(query, chain, history):
     history.append((query, answer))
     # Assuming result contains relevant document metadata, such as filenames
     if "source_documents" in result and result["source_documents"]:                    
-        return answer, result["source_documents"]
+        return history, answer, result["source_documents"]
     
-    return answer, []
+    return history, answer, []
 
 # Function to create the conversational chain
 def create_conversational_chain(vector_store):
     prompt_template = ChatPromptTemplate([
-        ("system", "Anda adalah AI Bot yang sangat membantu di lingkungan Kelurahan Keputih. Nama Anda adalah GuideBot."),
+        ("system", "Anda adalah Chatbot yang sangat membantu di lingkungan Kelurahan Keputih. Nama Anda adalah GuideBot."),
         ("human", 
          """
             Tolong jawab pertanyaan berikut dalam bahasa Indonesia.
@@ -36,10 +43,10 @@ def create_conversational_chain(vector_store):
     ])
 
     # LLAMA GROQ
-    # llm = ChatGroq(
-    #     groq_api_key=os.getenv('GROQ_API_KEY'), 
-    #     model_name='llama3-70b-8192'
-    # )
+    llm = ChatGroq(
+        groq_api_key=os.getenv('GROQ_API_KEY'), 
+        model_name='llama3-70b-8192'
+    )
 
     # if not os.getenv("HUGGINGFACEHUB_API_TOKEN"):
     #     os.environ["HUGGINGFACEHUB_API_TOKEN"] = getpass.getpass("Enter your token: ")
@@ -56,13 +63,13 @@ def create_conversational_chain(vector_store):
     # llm = ChatHuggingFace(llm=endpoint)    
 
     # GEMINI
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-pro",
-        temperature=0,
-        max_tokens=None,
-        timeout=None,
-        max_retries=2,
-    )
+    # llm = ChatGoogleGenerativeAI(
+    #     model="gemini-1.5-flash",
+    #     temperature=0,
+    #     max_tokens=None,
+    #     timeout=None,
+    #     max_retries=2,
+    # )
 
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True, output_key='answer')
 
@@ -100,17 +107,17 @@ def load_saved_files():
 # Function to split documents into smaller chunks
 def split_documents(text):
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=1000,
+        chunk_size=500,
         chunk_overlap=100,
         length_function=len,
         is_separator_regex=False,
     )
     return text_splitter.split_text(text)
 
-def load_vector_store(embeddings):
+def load_vector_store(embeddings):    
     vector_store = Chroma(
-        collection_name="SPIL",
-        embedding_function=embeddings or HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'}, clean_up_tokenization_spaces=True), 
+        collection_name="chatbot",
+        embedding_function=embeddings or HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'}), 
         persist_directory="vector_store"
     )
     return vector_store

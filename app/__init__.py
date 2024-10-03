@@ -1,17 +1,18 @@
 # app/__init__.py
-import threading
-from flask import Flask, current_app
 from base64 import b64encode
 from app.extensions import db, migrate
-from guide_bot.routes import guide_bot
-from app.models import User
+from flask import Flask, session
+from flask_session import Session
+from datetime import timedelta
 
 def create_app():
     
     app = Flask(__name__)
     app.config.from_object('config.Config')
-    app.config["TEMPLATES_AUTO_RELOAD"] = True
-
+    
+    # Inisialisasi session
+    Session(app)
+    
     # Define the b64encode filter
     def base64_encode(data):
         return b64encode(data).decode('utf-8')
@@ -22,7 +23,12 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    from app.routes import main
-    app.register_blueprint(guide_bot)
+    from app.routes import api_bp
+    app.register_blueprint(api_bp)
+
+    @app.before_request
+    def extend_session_timeout():
+        session.permanent = True
+        app.permanent_session_lifetime = timedelta(minutes=30)
 
     return app
