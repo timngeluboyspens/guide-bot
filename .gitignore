@@ -1,6 +1,8 @@
 /__pycache__
+/app/__pycache__/*
 /.vscode
 .venv/
 .env
 vector_store
 test.py
+.vercel

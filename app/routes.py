@@ -10,6 +10,7 @@ from app.models import Document
 from app.bot import *
 import logging
 import uuid
+from flasgger import swag_from
 
 load_dotenv()
 api_bp = Blueprint('api', __name__, url_prefix='/api')
@@ -18,9 +19,227 @@ GOOGLE_API_KEY=os.getenv('GOOGLE_API_KEY')
 
 logging.basicConfig(level=logging.INFO)
 
+api_docs = {
+    "view" : {
+        "parameters": [
+            {
+                "name": "id",
+                "in": "path",
+                "type": "integer",
+                "required": False,
+                "description": "Document ID"
+            }
+        ],
+        "definitions": {
+            "Document": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Document ID"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Document title"
+                    },
+                    "file": {
+                        "type": "string",
+                        "description": "Document file"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+                "description": "Success",
+                "schema": {
+                    "$ref": "#/definitions/Document"
+                }
+            },
+            "404": {
+                "description": "Document not found"
+            }
+        }
+    },
+    "create": {
+        "parameters": [
+            {
+                "name": "file",
+                "in": "formData",
+                "type": "file",
+                "required": True,
+                "description": "Document file"
+            }
+        ],
+        "definitions": {
+            "Document": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Document ID"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Document title"
+                    },
+                    "file": {
+                        "type": "string",
+                        "description": "Document file"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "201": {
+                "description": "Document created",
+                "schema": {
+                    "$ref": "#/definitions/Document"
+                }
+            },
+            "400": {
+                "description": "Bad request"
+            }
+        }
+    },
+    "update": {
+        "parameters": [
+            {
+                "name": "id",
+                "in": "path",
+                "type": "integer",
+                "required": True,
+                "description": "Document ID"
+            },
+            {
+                "name": "file",
+                "in": "formData",
+                "type": "file",
+                "required": False,
+                "description": "Document file"
+            }
+        ],
+        "definitions": {
+            "Document": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Document ID"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Document title"
+                    },
+                    "file": {
+                        "type": "string",
+                        "description": "Document file"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+                "description": "Document updated",
+                "schema": {
+                    "$ref": "#/definitions/Document"
+                }
+            }
+        }
+    },
+    "delete": {
+        "parameters": [
+            {
+                "name": "id",
+                "in": "path",
+                "type": "integer",
+                "required": True,
+                "description": "Document ID"
+            }
+        ],
+        "definitions": {
+            "Document": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Document ID"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Document title"
+                    },
+                    "file": {
+                        "type": "string",
+                        "description": "Document file"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+                "description": "Document deleted"
+            }
+        }
+    },
+    "chat": {
+        "parameters": [
+            {
+                "name": "user_input",
+                "in": "formData",
+                "type": "string",
+                "required": True,
+                "description": "User input"
+            }
+        ],
+        "definitions": {
+            "Chat": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "type": "string",
+                        "description": "Chat response"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+                "description": "Success"
+            },
+            "400": {
+                "description": "Bad request"
+            }
+        }
+    },
+    "reload_vector_db": {
+        "parameters": [],
+        "definitions": {
+            "Reload": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "Message"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+                "description": "Success",
+                "schema": {
+                    "$ref": "#/definitions/Reload"
+                }
+            }
+        }
+    },
+}
+
 # VIEW DOCUMENT/S
 @api_bp.route('/documents', methods=['GET'])
 @api_bp.route('/documents/<int:id>', methods=['GET'])
+@swag_from(api_docs['view'])
 def view(id=None):
     if id:
         document = Document.query.get_or_404(id)
@@ -33,6 +252,7 @@ def view(id=None):
     
 # CREATE DOCUMENT
 @api_bp.route('/documents', methods=['POST'])
+@swag_from(api_docs['create'])
 def create():    
     file = request.files.get('file')
     title = secure_filename(file.filename)
@@ -48,6 +268,7 @@ def create():
 
 # UPDATE DOCUMENT
 @api_bp.route('/documents/<int:id>', methods=['PUT'])
+@swag_from(api_docs['update'])
 def update(id):
     document = Document.query.get_or_404(id)
     
@@ -63,6 +284,7 @@ def update(id):
 
 # DELETE DOCUMENT
 @api_bp.route('/documents/<int:id>', methods=['DELETE'])
+@swag_from(api_docs['delete'])
 def delete(id):
     document = Document.query.get_or_404(id)
     db.session.delete(document)
@@ -70,6 +292,7 @@ def delete(id):
     return {"message": "Document deleted successfully."}
 
 @api_bp.route('/chat', methods=['POST'])
+@swag_from(api_docs['chat'])
 def chat():
     user_input = request.form.get('user_input')
     if not user_input:
@@ -100,6 +323,7 @@ def chat():
     }
 
 @api_bp.route('/reload-vector-db', methods=['GET'])
+@swag_from(api_docs['reload_vector_db'])
 def reload_vector_db():
     global embeddings
     
