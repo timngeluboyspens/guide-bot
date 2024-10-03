@@ -1,6 +1,3 @@
-Berikut adalah contoh file `README.md` untuk menjalankan proyek Flask API dan chatbot yang menggunakan vector store:
-
-```markdown
 # Document Management and Chatbot API
 
 This project provides a simple API to manage documents and interact with a chatbot using Langchain and a vector store. It is built using Flask and Flask-SQLAlchemy with vector embeddings stored in a Chroma database.
