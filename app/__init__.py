@@ -1,9 +1,10 @@
 # app/__init__.py
 from base64 import b64encode
-from app.extensions import db, migrate, swagger
+from app.extensions import db, migrate, swagger, supabase
 from flask import Flask, session
 from flask_session import Session
 from datetime import timedelta
+from flask_cors import CORS
 
 def create_app():
     
@@ -26,13 +27,17 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    from app.routes import api_bp
+    from app.routes import api_bp, document_bp, conversations_bp
     app.register_blueprint(api_bp)
+    app.register_blueprint(document_bp)
+    app.register_blueprint(conversations_bp)
 
     @app.before_request
     def extend_session_timeout():
         session.permanent = True
         app.permanent_session_lifetime = timedelta(minutes=30)
+
+    CORS(app)
 
     @app.route('/')
     def home():

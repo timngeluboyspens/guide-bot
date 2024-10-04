@@ -6,389 +6,283 @@ from dotenv import load_dotenv
 import os
 from langchain_core.documents import Document as ChatDocument
 from werkzeug.utils import secure_filename
-from app.models import Document
+from app.models import Document, Conversations, Messages, Sender
 from app.bot import *
+from app.docs import api_docs
 import logging
 import uuid
 from flasgger import swag_from
 
 load_dotenv()
-api_bp = Blueprint('api', __name__, url_prefix='/api')
 
 GOOGLE_API_KEY=os.getenv('GOOGLE_API_KEY')
 
 logging.basicConfig(level=logging.INFO)
 
-api_docs = {
-    "view" : {
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "type": "integer",
-                "required": False,
-                "description": "Document ID"
-            }
-        ],
-        "definitions": {
-            "Document": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "description": "Document ID"
-                    },
-                    "title": {
-                        "type": "string",
-                        "description": "Document title"
-                    },
-                    "file": {
-                        "type": "string",
-                        "description": "Document file"
-                    }
-                }
-            }
-        },
-        "responses": {
-            "200": {
-                "description": "Success",
-                "schema": {
-                    "$ref": "#/definitions/Document"
-                }
-            },
-            "404": {
-                "description": "Document not found"
-            }
-        }
-    },
-    "create": {
-        "parameters": [
-            {
-                "name": "file",
-                "in": "formData",
-                "type": "file",
-                "required": True,
-                "description": "Document file"
-            }
-        ],
-        "definitions": {
-            "Document": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "description": "Document ID"
-                    },
-                    "title": {
-                        "type": "string",
-                        "description": "Document title"
-                    },
-                    "file": {
-                        "type": "string",
-                        "description": "Document file"
-                    }
-                }
-            }
-        },
-        "responses": {
-            "201": {
-                "description": "Document created",
-                "schema": {
-                    "$ref": "#/definitions/Document"
-                }
-            },
-            "400": {
-                "description": "Bad request"
-            }
-        }
-    },
-    "update": {
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "type": "integer",
-                "required": True,
-                "description": "Document ID"
-            },
-            {
-                "name": "file",
-                "in": "formData",
-                "type": "file",
-                "required": False,
-                "description": "Document file"
-            }
-        ],
-        "definitions": {
-            "Document": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "description": "Document ID"
-                    },
-                    "title": {
-                        "type": "string",
-                        "description": "Document title"
-                    },
-                    "file": {
-                        "type": "string",
-                        "description": "Document file"
-                    }
-                }
-            }
-        },
-        "responses": {
-            "200": {
-                "description": "Document updated",
-                "schema": {
-                    "$ref": "#/definitions/Document"
-                }
-            }
-        }
-    },
-    "delete": {
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "type": "integer",
-                "required": True,
-                "description": "Document ID"
-            }
-        ],
-        "definitions": {
-            "Document": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "description": "Document ID"
-                    },
-                    "title": {
-                        "type": "string",
-                        "description": "Document title"
-                    },
-                    "file": {
-                        "type": "string",
-                        "description": "Document file"
-                    }
-                }
-            }
-        },
-        "responses": {
-            "200": {
-                "description": "Document deleted"
-            }
-        }
-    },
-    "chat": {
-        "parameters": [
-            {
-                "name": "user_input",
-                "in": "formData",
-                "type": "string",
-                "required": True,
-                "description": "User input"
-            }
-        ],
-        "definitions": {
-            "Chat": {
-                "type": "object",
-                "properties": {
-                    "response": {
-                        "type": "string",
-                        "description": "Chat response"
-                    }
-                }
-            }
-        },
-        "responses": {
-            "200": {
-                "description": "Success"
-            },
-            "400": {
-                "description": "Bad request"
-            }
-        }
-    },
-    "reload_vector_db": {
-        "parameters": [],
-        "definitions": {
-            "Reload": {
-                "type": "object",
-                "properties": {
-                    "message": {
-                        "type": "string",
-                        "description": "Message"
-                    }
-                }
-            }
-        },
-        "responses": {
-            "200": {
-                "description": "Success",
-                "schema": {
-                    "$ref": "#/definitions/Reload"
-                }
-            }
-        }
-    },
-}
+api_bp = Blueprint('api', __name__, url_prefix='/api')
+document_bp = Blueprint('document', __name__, url_prefix='/api/documents')
+conversations_bp = Blueprint('conversations', __name__, url_prefix='/api/conversations')
 
 # VIEW DOCUMENT/S
-@api_bp.route('/documents', methods=['GET'])
-@api_bp.route('/documents/<int:id>', methods=['GET'])
-@swag_from(api_docs['view'])
+@document_bp.route('/', methods=['GET'])
+@document_bp.route('/<string:id>', methods=['GET'])
+@swag_from(api_docs['view_documents'])
 def view(id=None):
-    if id:
-        document = Document.query.get_or_404(id)
-        logging.info(f"Viewing document with ID {id}")
-        return jsonify(document.to_dict())
-    else:
-        documents = Document.query.all()
-        logging.info("Viewing all documents")        
-        return jsonify([document.to_dict() for document in documents])
-    
+    try:
+        if id:
+            document = Document.query.get_or_404(id)
+            logging.info(f"Viewing document with ID {id}")
+            return jsonify(document.to_dict()), 200
+        else:
+            documents = Document.query.all()
+            logging.info("Viewing all documents")
+            return jsonify([document.to_dict() for document in documents]), 200
+    except Exception as e:
+        logging.error(f"Error viewing document(s): {str(e)}")
+        return jsonify({"error": "An error occurred while fetching the documents"}), 500
+
 # CREATE DOCUMENT
-@api_bp.route('/documents', methods=['POST'])
-@swag_from(api_docs['create'])
+@document_bp.route('/', methods=['POST'])
+@swag_from(api_docs['create_document'])
 def create():    
-    file = request.files.get('file')
-    title = secure_filename(file.filename)
-    
-    if not file:
-        return {"error": "Title are required."}, 400
-    
-    new_document = Document(title=title, file=file.read())
-    db.session.add(new_document)
-    db.session.commit()
-    
-    return jsonify(new_document.to_dict()), 201
+    try:
+        file = request.files.get('file')
+        if not file:
+            return jsonify({"error": "File is required"}), 400
+        
+        title = secure_filename(file.filename)
+        if not title:
+            return jsonify({"error": "File name is invalid"}), 400
+        
+        new_document = Document(title=title, file=file.read())
+        db.session.add(new_document)
+        db.session.commit()
+        
+        logging.info(f"Created document with title: {title}")
+        return jsonify(new_document.to_dict()), 201
+    except Exception as e:
+        logging.error(f"Error creating document: {str(e)}")
+        return jsonify({"error": "An error occurred while creating the document"}), 500
 
 # UPDATE DOCUMENT
-@api_bp.route('/documents/<int:id>', methods=['PUT'])
-@swag_from(api_docs['update'])
+@document_bp.route('/<string:id>', methods=['PUT'])
+@swag_from(api_docs['update_document'])
 def update(id):
-    document = Document.query.get_or_404(id)
-    
-    file = request.files.get('file')
-    
-    if file:
-        document.file = file.read()
-        document.title = secure_filename(file.filename)
-    
-    db.session.commit()
-    
-    return jsonify(document.to_dict()), 200
+    try:
+        document = Document.query.get_or_404(id)
+        
+        file = request.files.get('file')
+        if file:
+            document.file = file.read()
+            document.title = secure_filename(file.filename)
+        
+        db.session.commit()
+        logging.info(f"Updated document with ID: {id}")
+        return jsonify(document.to_dict()), 200
+    except Exception as e:
+        logging.error(f"Error updating document with ID {id}: {str(e)}")
+        return jsonify({"error": f"An error occurred while updating document with ID {id}"}), 500
 
 # DELETE DOCUMENT
-@api_bp.route('/documents/<int:id>', methods=['DELETE'])
-@swag_from(api_docs['delete'])
+@document_bp.route('/<string:id>', methods=['DELETE'])
+@swag_from(api_docs['delete_document'])
 def delete(id):
-    document = Document.query.get_or_404(id)
-    db.session.delete(document)
-    db.session.commit()
-    return {"message": "Document deleted successfully."}
+    try:
+        document = Document.query.get_or_404(id)
+        db.session.delete(document)
+        db.session.commit()
+        logging.info(f"Deleted document with ID: {id}")
+        return {"message": "Document deleted successfully"}, 200
+    except Exception as e:
+        logging.error(f"Error deleting document with ID {id}: {str(e)}")
+        return jsonify({"error": f"An error occurred while deleting document with ID {id}"}), 500
 
-@api_bp.route('/chat', methods=['POST'])
+# CHATBOT
+@conversations_bp.route('/', methods=['GET'])
+@conversations_bp.route('/<string:conversation_id>', methods=['GET'])
+@swag_from(api_docs['view_conversations'])
+def view(conversation_id=None):
+    try:
+        if conversation_id:
+            messages = Messages.query.filter_by(conversation_id=conversation_id).all()
+            logging.info(f"Viewing conversation with ID {conversation_id}")
+            return jsonify([message.to_dict() for message in messages]), 200
+        else:
+            conversations = Conversations.query.all()
+            logging.info("Viewing all conversations")
+            return jsonify([conversation.to_dict() for conversation in conversations]), 200
+    except Exception as e:
+        logging.error(f"Error viewing conversation(s): {str(e)}")
+        return jsonify({"error": "An error occurred while fetching the conversations"}), 500
+
+@conversations_bp.route('/', methods=['POST'])
+@swag_from(api_docs['create_conversation'])
+def create():
+    try:                    
+        user_id = request.json.get('user_id')
+        if not user_id:
+            return {"error": "User ID is required."}, 400
+        
+        title = request.json.get('title')
+        if not title:
+            return {"error": "Conversation title is required."}, 400
+
+        new_conversation = Conversations(title=title)
+        db.session.add(new_conversation)
+        db.session.commit()
+        logging.info(f"Created conversation with title: {title}")
+        return jsonify(new_conversation.to_dict()), 201
+
+    except Exception as e:
+        logging.error(f"Error creating conversation: {str(e)}")
+        return jsonify({"error": "An error occurred while creating the conversation"}), 500
+    
+@conversations_bp.route('/<string:conversation_id>', methods=['UPDATE'])
+@swag_from(api_docs['update_conversation'])
+def update(conversation_id):
+    try:
+        conversation = Conversations.query.get_or_404(conversation_id)
+        
+        title = request.json.get('title')
+        if title:
+            conversation.title = title
+        
+        db.session.commit()
+        logging.info(f"Updated conversation with ID: {conversation_id}")
+        return jsonify(conversation.to_dict()), 200
+    except Exception as e:
+        logging.error(f"Error updating conversation with ID {conversation_id}: {str(e)}")
+        return jsonify({"error": f"An error occurred while updating conversation with ID {conversation_id}"}), 500
+    
+@conversations_bp.route('/<string:conversation_id>', methods=['DELETE'])
+@swag_from(api_docs['delete_conversation'])
+def delete(conversation_id):
+    try:
+        conversation = Conversations.query.get_or_404(conversation_id)
+        db.session.delete(conversation)
+        db.session.commit()
+        logging.info(f"Deleted conversation with ID: {conversation_id}")
+        return {"message": "Conversation deleted successfully"}, 200
+    except Exception as e:
+        logging.error(f"Error deleting conversation with ID {conversation_id}: {str(e)}")
+        return jsonify({"error": f"An error occurred while deleting conversation with ID {conversation_id}"}), 500
+    
+@conversations_bp.route('/<string:conversation_id>', methods=['POST'])
 @swag_from(api_docs['chat'])
-def chat():
-    user_input = request.form.get('user_input')
-    if not user_input:
-        return {"error": "User input is required."}, 400
+def chat(conversation_id):
+    try:
+        user_session = session.get('user_id')
+        if not user_session:
+            return {"error": "User session is required."}, 400
+        
+        conversation = Conversations.query.get_or_404(conversation_id)        
+        if not conversation:
+            return {"error": "Conversation not found."}, 404
+        
+        if user_session and user_session != conversation.user_id:
+            return {"error": "User session mismatch."}, 400                
 
-    # Jika sesi belum ada, inisialisasi session history dan generated
-    if 'history' not in session:
-        session['history'] = []
-        session['past_questions'] = []
-        session['generated'] = ["Selamat datang di GuideBot!"]
+        user_input = request.json.get('user_input')
+        if not user_input:
+            return {"error": "User input is required."}, 400
+        
+        input_message = Messages(conversation_id=conversation_id, message=user_input, sender=Sender.USER)
+        db.session.add(input_message)
+        db.session.commit()
 
-    vector_store = load_vector_store(embeddings)    
-    if vector_store:
+        # Initialize session if not already initialized
+        if 'history' not in session:
+            session['history'] = []
+
+        vector_store = load_vector_store(embeddings)
+        if not vector_store:
+            return {"error": "No information available yet."}, 400
+
+        # Create conversation chain and process user input
         chain = create_conversational_chain(vector_store)
-    else:
-        return {"message": "No information available yet."}
+        if len(session.get('history')) > 10:
+            session['history'].pop(0)
+        session['history'], output, source_documents = conversation_chat(user_input, chain, session['history'])
+        output_message = Messages(conversation_id=conversation_id, message=output, sender=Sender.BOT)
+        db.session.add(output_message)
+        db.session.commit()
+        output = markdown.markdown(output)
+        return {"response": output}, 200
 
-    # Set sesi sebagai permanen agar menggunakan timeout
-    session.permanent = True
+    except Exception as e:
+        logging.error(f"Error in chatbot: {str(e)}")
+        return jsonify({"error": "An error occurred during the chat process"}), 500
 
-    # Proses chat seperti biasa
-    session['history'], output, source_documents = conversation_chat(user_input, chain, session['history'])
-    output = markdown.markdown(output)
-    session['generated'].append(output)
-
-    return {
-        "response": output,
-    }
-
+# RELOAD VECTOR DB
 @api_bp.route('/reload-vector-db', methods=['GET'])
 @swag_from(api_docs['reload_vector_db'])
 def reload_vector_db():
-    global embeddings
-    
-    vector_store = load_vector_store(embeddings)
-    # Load all documents from the SQL database
-    documents = Document.query.all()
-    document_ids = [document.id for document in documents]      
-    metadatas = vector_store.get()['metadatas']
-    metadatas_document_id = [metadata["document_id"] for metadata in metadatas]
-    
-    for document in documents:
-        # Check if document already exists in the vector store
-        if document.id in metadatas_document_id:
-            print(f"Document {document.id} already exists in the vector store.")
-            continue
+    try:
+        global embeddings
+        vector_store = load_vector_store(embeddings)
+        documents = Document.query.all()
+        document_ids = [document.id for document in documents]      
+        metadatas = vector_store.get()['metadatas']
+        metadatas_document_id = [metadata["document_id"] for metadata in metadatas]
 
-        # Check if document.file is not None
-        if document.file is None:
-            print(f"Document {document.id} has no file.")
-            continue
+        # Add new documents to vector store
+        for document in documents:
+            if document.id in metadatas_document_id:
+                logging.info(f"Document {document.id} already exists in the vector store.")
+                continue
+            if not document.file:
+                logging.info(f"Document {document.id} has no file.")
+                continue
 
-        #  Save the document to a temporary file         
-        file_path = os.path.join('data', secure_filename(document.title))
-        with open(file_path, 'wb') as f:
-            f.write(document.file)
-        
-        # Extract text based on file type
-        all_text = extract_text_from_file(file_path)
-        
-        if not all_text.strip():
-            print(f"Failed to extract text from document {document.title}")
-            continue
+            file_path = os.path.join('data', secure_filename(document.title))
+            with open(file_path, 'wb') as f:
+                f.write(document.file)
+            
+            all_text = extract_text_from_file(file_path)
+            if not all_text.strip():
+                logging.warning(f"Failed to extract text from document {document.title}")
+                continue
 
-        splitted_text = split_documents(all_text)
-        
-        for text in splitted_text:            
-            document_obj = ChatDocument(
-                page_content= text,
-                metadata = {
+            splitted_text = split_documents(all_text)
+            for text in splitted_text:            
+                document_obj = ChatDocument(
+                    page_content= text,
+                    metadata = {
                         "id": str(uuid.uuid4()),
                         "title": document.title,
                         "document_id": document.id,                        
                     }
-            )
-                        
-            vector_store.add_documents(
-                documents=[document_obj], 
-                ids=[document_obj.metadata['id']]
-            )
-            print(f"Menambahkan dokumen dengan judul {document.title} dan id vector {document_obj.metadata['id']}")
+                )
+                vector_store.add_documents(
+                    documents=[document_obj], 
+                    ids=[document_obj.metadata['id']]
+                )
+                logging.info(f"Added document {document.title} with vector ID {document_obj.metadata['id']}")
+            os.remove(file_path)
 
-        os.remove(file_path)
+        # Remove vectors that no longer exist in the SQL database
+        for metadata in metadatas:
+            if metadata['document_id'] not in document_ids:
+                vector_store.delete([metadata['id']])
+                logging.info(f"Deleted vector for document {metadata['title']} with vector ID {metadata['id']}")
 
-    metadatas = vector_store.get()['metadatas']
+        return {"message": "Vector store reloaded."}, 200
 
-    # Delete vector which document_id not in document_ids
-    for metadata in metadatas:
-        if metadata['document_id'] not in document_ids:
-            vector_store.delete([metadata['id']])
-            print(f"Menghapus dokumen dengan judul {metadata['title']} dan id {metadata['id']}")
+    except Exception as e:
+        logging.error(f"Error reloading vector store: {str(e)}")
+        return jsonify({"error": "An error occurred while reloading the vector store"}), 500
 
-    return {"message": "Vector store reloaded."}
+@api_bp.route('/user-session', methods=['POST'])
+@swag_from(api_docs['user_session'])
+def user_session():
+    try:
+        user_id = request.json.get('user_id')
+        if not user_id:
+            return {"error": "User ID is required."}, 400
 
+        session['user_id'] = user_id
+        return {"message": "User session set."}, 201
 
-
-
-
-
+    except Exception as e:
+        logging.error(f"Error setting user session: {str(e)}")
+        return jsonify({"error": "An error occurred while setting the user session"}), 500
