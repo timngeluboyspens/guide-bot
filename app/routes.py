@@ -119,7 +119,7 @@ def view(conversation_id=None):
 @swag_from(api_docs['create_conversation'])
 def create():
     try:                    
-        user_id = request.json.get('user_id')
+        user_id = session.get('user_id')
         if not user_id:
             return {"error": "User ID is required."}, 400
         
@@ -127,7 +127,7 @@ def create():
         if not title:
             return {"error": "Conversation title is required."}, 400
 
-        new_conversation = Conversations(title=title)
+        new_conversation = Conversations(user_id=user_id,title=title)
         db.session.add(new_conversation)
         db.session.commit()
         logging.info(f"Created conversation with title: {title}")
