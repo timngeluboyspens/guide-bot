@@ -144,12 +144,15 @@ orjson==3.10.7
 overrides==7.7.0
 packaging==24.1
 pandas==2.2.3
+pandoc==2.4
 pdf2image==1.17.0
 pdfminer.six==20231228
 pdfplumber==0.11.4
 pi_heif==0.18.0
 pikepdf==9.3.0
 pillow==10.4.0
+plumbum==1.9.0
+ply==3.11
 portalocker==2.10.1
 postgrest==0.17.1
 posthog==3.7.0
