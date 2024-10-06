@@ -46,21 +46,47 @@ pip install -r requirements.txt
 Create a `.env` file in the root directory and add your configuration:
 
 ```
-FLASK_APP=app.py
-FLASK_ENV=development
-SQLALCHEMY_DATABASE_URI=sqlite:///db.sqlite3
-SECRET_KEY=your_secret_key
-GOOGLE_API_KEY=your_google_api_key
+SECRET_KEY=s
+DATABASE_URL=
+GROQ_API_KEY=
+HUGGINGFACEHUB_API_TOKEN=
+GOOGLE_API_KEY=
 ```
 
-### 6. Initialize the database
+### 6. Installation System Dependencies
+To ensure the proper functionality of our application, the following dependencies need to be installed on your system:
+
+[libmagic](https://man7.org/linux/man-pages/man3/libmagic.3.html) - A library used for detecting file types.
+[poppler](https://poppler.freedesktop.org/) - A PDF rendering library.
+[libreoffice](https://www.libreoffice.org/discover/libreoffice/) - A powerful office suite.
+[pandoc](https://pandoc.org/) - A universal document converter.
+[tesseract](https://github.com/tesseract-ocr/tesseract) - An OCR (Optical Character Recognition) engine.
+
+#### Installation Instructions for Linux Users
+If you're using a Linux-based system, you can easily install all of these packages by running our provided shell script.
+
+1. Download the script install_packages.sh.
+2. Make the script executable by running the following command:
+```bash
+sudo chmod +x install_packages.sh
+```
+3. Then, run the script to install all required packages:
+```bash
+sudo ./install_packages.sh
+```
+This script will automatically handle the installation of all necessary packages on your system.
+
+
+### 7. Initialize the database
 Run the following command to create the database and apply migrations:
 
 ```bash
+flask db init
+flask db upgrade
 flask db upgrade
 ```
 
-### 7. Start the Flask server
+### 8. Start the Flask server
 To start the development server, run:
 
 ```bash
