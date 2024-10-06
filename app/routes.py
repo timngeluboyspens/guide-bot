@@ -97,124 +97,8 @@ def delete(id):
         logging.error(f"Error deleting document with ID {id}: {str(e)}")
         return jsonify({"error": f"An error occurred while deleting document with ID {id}"}), 500
 
-# CHATBOT
-@conversations_bp.route('/', methods=['GET'])
-@conversations_bp.route('/<string:conversation_id>', methods=['GET'])
-@swag_from(api_docs['view_conversations'])
-def view(conversation_id=None):
-    try:
-        if conversation_id:
-            messages = Messages.query.filter_by(conversation_id=conversation_id).all()
-            logging.info(f"Viewing conversation with ID {conversation_id}")
-            return jsonify([message.to_dict() for message in messages]), 200
-        else:
-            conversations = Conversations.query.all()
-            logging.info("Viewing all conversations")
-            return jsonify([conversation.to_dict() for conversation in conversations]), 200
-    except Exception as e:
-        logging.error(f"Error viewing conversation(s): {str(e)}")
-        return jsonify({"error": "An error occurred while fetching the conversations"}), 500
-
-@conversations_bp.route('/', methods=['POST'])
-@swag_from(api_docs['create_conversation'])
-def create():
-    try:                    
-        user_id = session.get('user_id')
-        if not user_id:
-            return {"error": "User ID is required."}, 400
-        
-        title = request.json.get('title')
-        if not title:
-            return {"error": "Conversation title is required."}, 400
-
-        new_conversation = Conversations(user_id=user_id,title=title)
-        db.session.add(new_conversation)
-        db.session.commit()
-        logging.info(f"Created conversation with title: {title}")
-        return jsonify(new_conversation.to_dict()), 201
-
-    except Exception as e:
-        logging.error(f"Error creating conversation: {str(e)}")
-        return jsonify({"error": "An error occurred while creating the conversation"}), 500
-    
-@conversations_bp.route('/<string:conversation_id>', methods=['UPDATE'])
-@swag_from(api_docs['update_conversation'])
-def update(conversation_id):
-    try:
-        conversation = Conversations.query.get_or_404(conversation_id)
-        
-        title = request.json.get('title')
-        if title:
-            conversation.title = title
-        
-        db.session.commit()
-        logging.info(f"Updated conversation with ID: {conversation_id}")
-        return jsonify(conversation.to_dict()), 200
-    except Exception as e:
-        logging.error(f"Error updating conversation with ID {conversation_id}: {str(e)}")
-        return jsonify({"error": f"An error occurred while updating conversation with ID {conversation_id}"}), 500
-    
-@conversations_bp.route('/<string:conversation_id>', methods=['DELETE'])
-@swag_from(api_docs['delete_conversation'])
-def delete(conversation_id):
-    try:
-        conversation = Conversations.query.get_or_404(conversation_id)
-        db.session.delete(conversation)
-        db.session.commit()
-        logging.info(f"Deleted conversation with ID: {conversation_id}")
-        return {"message": "Conversation deleted successfully"}, 200
-    except Exception as e:
-        logging.error(f"Error deleting conversation with ID {conversation_id}: {str(e)}")
-        return jsonify({"error": f"An error occurred while deleting conversation with ID {conversation_id}"}), 500
-    
-@conversations_bp.route('/<string:conversation_id>', methods=['POST'])
-@swag_from(api_docs['chat'])
-def chat(conversation_id):
-    try:
-        user_session = session.get('user_id')
-        if not user_session:
-            return {"error": "User session is required."}, 400
-        
-        conversation = Conversations.query.get_or_404(conversation_id)        
-        if not conversation:
-            return {"error": "Conversation not found."}, 404
-        
-        if user_session and user_session != conversation.user_id:
-            return {"error": "User session mismatch."}, 400                
-
-        user_input = request.json.get('user_input')
-        if not user_input:
-            return {"error": "User input is required."}, 400
-        
-        input_message = Messages(conversation_id=conversation_id, message=user_input, sender=Sender.USER)
-        db.session.add(input_message)
-        db.session.commit()
-
-        # Initialize session if not already initialized
-        if 'history' not in session:
-            session['history'] = []
-
-        vector_store = load_vector_store(embeddings)
-        if not vector_store:
-            return {"error": "No information available yet."}, 400
-
-        # Create conversation chain and process user input
-        chain = create_conversational_chain(vector_store)
-        if len(session.get('history')) > 10:
-            session['history'].pop(0)
-        session['history'], output, source_documents = conversation_chat(user_input, chain, session['history'])
-        output_message = Messages(conversation_id=conversation_id, message=output, sender=Sender.BOT)
-        db.session.add(output_message)
-        db.session.commit()
-        output = markdown.markdown(output)
-        return {"response": output}, 200
-
-    except Exception as e:
-        logging.error(f"Error in chatbot: {str(e)}")
-        return jsonify({"error": "An error occurred during the chat process"}), 500
-
 # RELOAD VECTOR DB
-@api_bp.route('/reload-vector-db', methods=['GET'])
+@document_bp.route('/reload-vector-db', methods=['GET'])
 @swag_from(api_docs['reload_vector_db'])
 def reload_vector_db():
     try:
@@ -258,7 +142,10 @@ def reload_vector_db():
                     ids=[document_obj.metadata['id']]
                 )
                 logging.info(f"Added document {document.title} with vector ID {document_obj.metadata['id']}")
-            os.remove(file_path)
+        
+        # Remove files in the data directory
+        for file in os.listdir('data'):
+            os.remove(os.path.join('data', file))
 
         # Remove vectors that no longer exist in the SQL database
         for metadata in metadatas:
@@ -272,17 +159,124 @@ def reload_vector_db():
         logging.error(f"Error reloading vector store: {str(e)}")
         return jsonify({"error": "An error occurred while reloading the vector store"}), 500
 
-@api_bp.route('/user-session', methods=['POST'])
-@swag_from(api_docs['user_session'])
-def user_session():
+# VIEW CONVERSATION/S
+@conversations_bp.route('/', methods=['GET'])
+@conversations_bp.route('/<string:conversation_id>', methods=['GET'])
+@swag_from(api_docs['view_conversations'])
+def view(conversation_id=None):
     try:
-        user_id = request.json.get('user_id')
+        if conversation_id:
+            messages = Messages.query.filter_by(conversation_id=conversation_id).all()
+            logging.info(f"Viewing conversation with ID {conversation_id}")
+            return jsonify([message.to_dict() for message in messages]), 200
+        else:
+            conversations = Conversations.query.all()
+            logging.info("Viewing all conversations")
+            return jsonify([conversation.to_dict() for conversation in conversations]), 200
+    except Exception as e:
+        logging.error(f"Error viewing conversation(s): {str(e)}")
+        return jsonify({"error": "An error occurred while fetching the conversations"}), 500
+
+# CREATE CONVERSATION
+@conversations_bp.route('/', methods=['POST'])
+@swag_from(api_docs['create_conversation'])
+def create():
+    try:          
+        headers = request.headers       
+        user_id = headers['Authorization']
         if not user_id:
             return {"error": "User ID is required."}, 400
+        
+        title = request.json.get('title')
+        if not title:
+            return {"error": "Conversation title is required."}, 400
 
-        session['user_id'] = user_id
-        return {"message": "User session set."}, 201
+        new_conversation = Conversations(user_id=user_id,title=title)
+        db.session.add(new_conversation)
+        db.session.commit()
+        logging.info(f"Created conversation with title: {title}")
+        return jsonify(new_conversation.to_dict()), 201
 
     except Exception as e:
-        logging.error(f"Error setting user session: {str(e)}")
-        return jsonify({"error": "An error occurred while setting the user session"}), 500
+        logging.error(f"Error creating conversation: {str(e)}")
+        return jsonify({"error": "An error occurred while creating the conversation"}), 500
+    
+# UPDATE CONVERSATION
+@conversations_bp.route('/<string:conversation_id>', methods=['UPDATE'])
+@swag_from(api_docs['update_conversation'])
+def update(conversation_id):
+    try:
+        conversation = Conversations.query.get_or_404(conversation_id)
+        
+        title = request.json.get('title')
+        if title:
+            conversation.title = title
+        
+        db.session.commit()
+        logging.info(f"Updated conversation with ID: {conversation_id}")
+        return jsonify(conversation.to_dict()), 200
+    except Exception as e:
+        logging.error(f"Error updating conversation with ID {conversation_id}: {str(e)}")
+        return jsonify({"error": f"An error occurred while updating conversation with ID {conversation_id}"}), 500
+    
+# DELETE CONVERSATION
+@conversations_bp.route('/<string:conversation_id>', methods=['DELETE'])
+@swag_from(api_docs['delete_conversation'])
+def delete(conversation_id):
+    try:
+        conversation = Conversations.query.get_or_404(conversation_id)
+        db.session.delete(conversation)
+        db.session.commit()
+        logging.info(f"Deleted conversation with ID: {conversation_id}")
+        return {"message": "Conversation deleted successfully"}, 200
+    except Exception as e:
+        logging.error(f"Error deleting conversation with ID {conversation_id}: {str(e)}")
+        return jsonify({"error": f"An error occurred while deleting conversation with ID {conversation_id}"}), 500
+    
+# CHATBOT
+@conversations_bp.route('/<string:conversation_id>', methods=['POST'])
+@swag_from(api_docs['chat'])
+def chat(conversation_id):
+    try:
+        headers = request.headers
+        user_session = headers['Authorization']
+        if not user_session:
+            return {"error": "User session is required."}, 400
+        
+        conversation = Conversations.query.get_or_404(conversation_id)        
+        if not conversation:
+            return {"error": "Conversation not found."}, 404
+        
+        if user_session and user_session != conversation.user_id:
+            return {"error": "User session mismatch."}, 400                
+
+        user_input = request.json.get('user_input')
+        if not user_input:
+            return {"error": "User input is required."}, 400
+        
+        input_message = Messages(conversation_id=conversation_id, message=user_input, sender=Sender.USER)
+        db.session.add(input_message)
+        db.session.commit()
+
+        # Initialize session if not already initialized
+        if 'history' not in session:
+            session['history'] = []
+
+        vector_store = load_vector_store(embeddings)
+        if not vector_store:
+            return {"error": "No information available yet."}, 400
+
+        # Create conversation chain and process user input
+        chain = create_conversational_chain(vector_store)
+        if len(session.get('history')) > 10:
+            session['history'].pop(0)
+        session['history'], output, source_documents = conversation_chat(user_input, chain, session['history'])
+        output_message = Messages(conversation_id=conversation_id, message=output, sender=Sender.BOT)
+        db.session.add(output_message)
+        db.session.commit()
+        output = markdown.markdown(output)
+        return {"response": output}, 200
+
+    except Exception as e:
+        logging.error(f"Error in chatbot: {str(e)}")
+        return jsonify({"error": "An error occurred during the chat process"}), 500
