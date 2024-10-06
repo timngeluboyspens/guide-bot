@@ -1,16 +1,17 @@
 # Document Management and Chatbot API
 
-This project provides a simple API to manage documents and interact with a chatbot using Langchain and a vector store. It is built using Flask and Flask-SQLAlchemy with vector embeddings stored in a Chroma database.
+This project provides a simple API to manage documents, manage conversations, and interact with a chatbot. It is built using Langchain, HuggingFace, Flask and Flask-SQLAlchemy with vector embeddings stored in a Chroma database.
 
 ## Features
 - View, create, update, and delete documents.
-- Chatbot interaction using Langchain.
+- View, create, update, and delete conversations.
+- Chatbot interaction.
 - Reload vector store from document database.
 
 ## Prerequisites
 
 Make sure you have the following installed:
-- Python 3.8+
+- Python 3.10+
 - `pip`
 - `virtualenv`
 
