@@ -271,6 +271,13 @@ api_docs = {
         'description': 'Fetches all conversations or a specific conversation based on the provided conversation ID. If no ID is provided, returns all conversations.',
         'parameters': [
             {
+                'name': 'Authorization',
+                'in': 'header',
+                'required': True,
+                'type': 'string',
+                'description': 'The ID of the user creating the conversation'
+            },
+            {
                 'name': 'conversation_id',
                 'in': 'path',
                 'required': False,
@@ -412,6 +419,13 @@ api_docs = {
         'description': 'Updates the title of a conversation based on the provided conversation ID.',
         'parameters': [
             {
+                'name': 'Authorization',
+                'in': 'header',
+                'required': True,
+                'type': 'string',
+                'description': 'The ID of the user creating the conversation'
+            },
+            {
                 'name': 'conversation_id',
                 'in': 'path',
                 'required': True,
@@ -487,6 +501,13 @@ api_docs = {
         'summary': 'Delete a conversation by ID',
         'description': 'Deletes a conversation from the database based on the provided conversation ID.',
         'parameters': [
+            {
+                'name': 'Authorization',
+                'in': 'header',
+                'required': True,
+                'type': 'string',
+                'description': 'The ID of the user creating the conversation'
+            },
             {
                 'name': 'conversation_id',
                 'in': 'path',

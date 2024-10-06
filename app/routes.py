@@ -169,12 +169,20 @@ def reload_vector_db():
 @swag_from(api_docs['view_conversations'])
 def view(conversation_id=None):
     try:
+        headers = request.headers       
+        user_id = headers['Authorization']
+        if not user_id:
+            return {"error": "User ID is required."}, 400
+        
         if conversation_id:
+            conversation = Conversations.query.get_or_404(conversation_id)
+            if conversation.user_id != user_id:
+                return {"error": "User ID mismatch."}, 400
             messages = Messages.query.filter_by(conversation_id=conversation_id).all()
             logging.info(f"Viewing conversation with ID {conversation_id}")
             return jsonify([message.to_dict() for message in messages]), 200
         else:
-            conversations = Conversations.query.all()
+            conversations = Conversations.query.filter_by(user_id=user_id)
             logging.info("Viewing all conversations")
             return jsonify([conversation.to_dict() for conversation in conversations]), 200
     except Exception as e:
@@ -210,7 +218,15 @@ def create():
 @swag_from(api_docs['update_conversation'])
 def update(conversation_id):
     try:
+        headers = request.headers       
+        user_id = headers['Authorization']
+        if not user_id:
+            return {"error": "User ID is required."}, 400
+        
         conversation = Conversations.query.get_or_404(conversation_id)
+
+        if conversation.user_id != user_id:
+            return {"error": "User ID mismatch."}, 400
         
         title = request.json.get('title')
         if title:
@@ -228,7 +244,16 @@ def update(conversation_id):
 @swag_from(api_docs['delete_conversation'])
 def delete(conversation_id):
     try:
+        headers = request.headers
+        user_id = headers['Authorization']
+        if not user_id:
+            return {"error": "User ID is required."}, 400
+        
         conversation = Conversations.query.get_or_404(conversation_id)
+        
+        if conversation.user_id != user_id:
+            return {"error": "User ID mismatch."}, 400
+        
         db.session.delete(conversation)
         db.session.commit()
         logging.info(f"Deleted conversation with ID: {conversation_id}")
@@ -251,7 +276,7 @@ def chat(conversation_id):
         if not conversation:
             return {"error": "Conversation not found."}, 404
         
-        if user_session and user_session != conversation.user_id:
+        if user_session != conversation.user_id:
             return {"error": "User session mismatch."}, 400                
 
         user_input = request.json.get('user_input')
