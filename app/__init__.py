@@ -1,6 +1,6 @@
 # app/__init__.py
 from base64 import b64encode
-from app.extensions import db, migrate, swagger, supabase
+from app.extensions import db, migrate, swagger
 from flask import Flask, session
 from flask_session import Session
 from datetime import timedelta
