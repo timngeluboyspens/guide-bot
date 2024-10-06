@@ -6,3 +6,4 @@
 vector_store
 test.py
 .vercel
+data/*

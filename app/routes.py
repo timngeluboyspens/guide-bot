@@ -29,6 +29,7 @@ conversations_bp = Blueprint('conversations', __name__, url_prefix='/api/convers
 @swag_from(api_docs['view_documents'])
 def view(id=None):
     try:
+        logging.info(f"Viewing document with ID {id}")
         if id:
             document = Document.query.get_or_404(id)
             logging.info(f"Viewing document with ID {id}")
@@ -117,6 +118,9 @@ def reload_vector_db():
             if not document.file:
                 logging.info(f"Document {document.id} has no file.")
                 continue
+
+            if not os.path.exists('data'):
+                os.makedirs('data')
 
             file_path = os.path.join('data', secure_filename(document.title))
             with open(file_path, 'wb') as f:
