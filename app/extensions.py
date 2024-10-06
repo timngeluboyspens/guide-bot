@@ -8,9 +8,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
-supabase: Client = create_client(url, key)
+# url: str = os.environ.get("SUPABASE_URL")
+# key: str = os.environ.get("SUPABASE_KEY")
+# supabase: Client = create_client(url, key)
 
 db = SQLAlchemy()
 migrate = Migrate() 
