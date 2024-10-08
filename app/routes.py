@@ -170,7 +170,7 @@ def reload_vector_db():
 def view(conversation_id=None):
     try:
         headers = request.headers       
-        user_id = headers['Authorization']
+        user_id = headers.get('Authorization')
         if not user_id:
             return {"error": "User ID is required."}, 400
         
