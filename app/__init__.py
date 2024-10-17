@@ -23,26 +23,28 @@ def polling_bot():
 
     print('Starting bot...')
     bot = TelegramBot(TOKEN, BOT_USERNAME)
+
+    bot.run()
     
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    loop.run_until_complete(bot.run())
+    # loop = asyncio.new_event_loop()
+    # asyncio.set_event_loop(loop)
+    # loop.run_until_complete(bot.run())
 
-def handle_shutdown_signal(signal, frame):
-    global bot_thread
-    global bot
+# def handle_shutdown_signal(signal, frame):
+#     global bot_thread
+#     global bot
 
-    if bot is not None:
-        bot.stop()
+#     if bot is not None:
+#         bot.stop()
 
-    if bot_thread is not None:
-        print('Shutting down bot...')
-        bot_thread.join()
-        bot_thread = None
-        print('Bot has been shut down.')
+#     if bot_thread is not None:
+#         print('Shutting down bot...')
+#         bot_thread.join()
+#         bot_thread = None
+#         print('Bot has been shut down.')
 
-    print('Shutting down the server...')
-    os._exit(0)
+#     print('Shutting down the server...')
+#     os._exit(0)
 
 def create_app():
     global bot_thread
@@ -101,7 +103,7 @@ def create_app():
     bot_thread.start()
 
     # Tangkap sinyal SIGINT (Ctrl+C) dan SIGTERM
-    signal.signal(signal.SIGINT, handle_shutdown_signal)
-    signal.signal(signal.SIGTERM, handle_shutdown_signal)
+    # signal.signal(signal.SIGINT, handle_shutdown_signal)
+    # signal.signal(signal.SIGTERM, handle_shutdown_signal)
 
     return app
