@@ -1,17 +1,23 @@
-# Use an official Python runtime as a parent image
+# Gunakan image dasar Python
 FROM python:3.10-slim
 
-# Set the working directory in the container
+# Setel direktori kerja di dalam container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy file requirements.txt ke dalam container
+COPY requirements.txt requirements.txt
 
-# Install any needed packages specified in requirements.txt
+# Install dependencies dari requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 80 available to the world outside this container
-EXPOSE 5000
+# Copy seluruh kode aplikasi ke dalam container
+COPY . .
 
-# Run
-CMD ["flask", "run",]
+# Berikan permission untuk eksekusi script
+RUN chmod +x /app/install_packages.sh
+
+# Jalankan shell script untuk menginstall sistem packages
+RUN /app/install_packages.sh
+
+# Eksekusi aplikasi Flask dengan Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--log-level", "info", "wsgi:app"]

@@ -1,12 +1,51 @@
 # app/__init__.py
 from base64 import b64encode
+import os
+import signal
+import threading
 from app.extensions import db, migrate, swagger
 from flask import Flask, Response, request, session
 from flask_session import Session
 from datetime import timedelta
 from flask_cors import CORS
 
+from app.telegram_bot import TelegramBot
+
+bot_thread = None
+bot = None
+import asyncio
+
+def polling_bot():
+    global bot
+
+    TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+    BOT_USERNAME = "@bambubot"
+
+    print('Starting bot...')
+    bot = TelegramBot(TOKEN, BOT_USERNAME)
+    
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(bot.run())
+
+def handle_shutdown_signal(signal, frame):
+    global bot_thread
+    global bot
+
+    if bot is not None:
+        bot.stop()
+
+    if bot_thread is not None:
+        print('Shutting down bot...')
+        bot_thread.join()
+        bot_thread = None
+        print('Bot has been shut down.')
+
+    print('Shutting down the server...')
+    os._exit(0)
+
 def create_app():
+    global bot_thread
     
     app = Flask(__name__)
     app.config.from_object('config.Config')
@@ -57,5 +96,12 @@ def create_app():
     @app.route('/')
     def home():
         return "Welcome to the Guide Bot API!"
+
+    bot_thread = threading.Thread(target=polling_bot, name="TelegramBot")
+    bot_thread.start()
+
+    # Tangkap sinyal SIGINT (Ctrl+C) dan SIGTERM
+    signal.signal(signal.SIGINT, handle_shutdown_signal)
+    signal.signal(signal.SIGTERM, handle_shutdown_signal)
 
     return app

@@ -6,7 +6,7 @@ from app import db
 class Document(db.Model):
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     title = db.Column(db.String(120), index=True)
-    file = db.Column(db.LargeBinary)
+    path = db.Column(db.String(120), index=True)
     created_at = db.Column(db.DateTime, default=db.func.now())
     updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
 
@@ -14,7 +14,7 @@ class Document(db.Model):
         return {
             'id': self.id,
             'title': self.title,
-            'file': base64.b64encode(self.file).decode('utf-8'),
+            'path': self.path,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

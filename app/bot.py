@@ -3,10 +3,16 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.memory import ConversationBufferMemory
 from langchain_chroma import Chroma
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain_groq import ChatGroq
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEmbeddings, HuggingFaceEndpoint, HuggingFacePipeline
 from unstructured.partition.auto import partition
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Embeddings
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'})
@@ -18,74 +24,83 @@ def extract_text_from_file(file_path):
 
 # Function to handle conversation with the chatbot
 def conversation_chat(query, chain, history):
-    result = chain.invoke({"question": query, "chat_history": history})
-    answer = result["answer"]        
-    history.append((query, answer))
-    # Assuming result contains relevant document metadata, such as filenames
-    if "source_documents" in result and result["source_documents"]:                    
-        return history, answer, result["source_documents"]
+    logging.info(f"Received query: {query}")
+    result = chain.invoke({"input": query, "chat_history": history})
     
-    return history, answer, []
+    answer = result.get("answer", "Maaf, saya tidak tahu jawabannya.")
+    history.append(("human", query))
+    history.append(("ai", answer))
+    logging.info(f"Answer generated: {answer}")
+
+    # Assuming result contains relevant document metadata, such as filenames
+    if "context" in result and result["context"]:
+        logging.info("Source documents retrieved.")
+        return history, answer, result["context"]
+    
+    logging.warning("No source documents found.")
+    return history, answer, None
 
 # Function to create the conversational chain
 def create_conversational_chain(vector_store):
-    prompt_template = ChatPromptTemplate([
-        ("system", "Anda adalah Chatbot yang sangat membantu di lingkungan Kelurahan Keputih. Nama Anda adalah GuideBot."),
-        ("human", 
-         """
-            Tolong jawab pertanyaan berikut dalam bahasa Indonesia.
-            Jika informasi dalam konteks tersedia, gunakan untuk memberikan jawaban yang akurat dan jelas.
-            Jika tidak ada konteks atau jawaban yang tepat, katakan 'Maaf, saya tidak tahu jawabannya'.
-            Pertanyaan: {question}
-            Konteks: {context}
-            Jawaban:
-         """)
-    ])
+    retriever = vector_store.as_retriever(
+        search_type="similarity_score_threshold", 
+        search_kwargs={"k": 1, 'score_threshold': 0.1}
+    )
 
-    # LLAMA GROQ
+    # LLAMA GROQ initialization
     llm = ChatGroq(
         groq_api_key=os.getenv('GROQ_API_KEY'), 
         model_name='llama3-70b-8192'
     )
 
-    # if not os.getenv("HUGGINGFACEHUB_API_TOKEN"):
-    #     os.environ["HUGGINGFACEHUB_API_TOKEN"] = getpass.getpass("Enter your token: ")
+    # Contextualize question prompt (in Bahasa Indonesia)
+    contextualize_q_system_prompt = (
+        "Berdasarkan riwayat percakapan dan pertanyaan terbaru dari pengguna "
+        "yang mungkin merujuk pada konteks dalam riwayat percakapan, "
+        "formulasikan pertanyaan yang dapat dipahami tanpa perlu melihat riwayat percakapan. "
+        "Jangan menjawab pertanyaan tersebut, hanya reformulasikan jika perlu, "
+        "dan jika tidak perlu perubahan, kembalikan seperti semula."
+    )
 
-    # endpoint = HuggingFaceEndpoint(
-    #     repo_id="bigscience/bloom",
-    #     task="text-generation",
-    #     max_new_tokens=4096,
-    #     do_sample=False,
-    #     repetition_penalty=1.03,
-    # )
+    contextualize_q_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", contextualize_q_system_prompt),
+            MessagesPlaceholder("chat_history"),
+            ("human", "{input}")  # Replace {input} correctly to handle the user's query
+        ]
+    )
 
-    # # LLAMA HUGGING FACE
-    # llm = ChatHuggingFace(llm=endpoint)    
+    # Create a history-aware retriever to contextualize the query based on chat history
+    history_aware_retriever = create_history_aware_retriever(
+        llm, retriever, contextualize_q_prompt
+    )
 
-    # GEMINI
-    # llm = ChatGoogleGenerativeAI(
-    #     model="gemini-1.5-flash",
-    #     temperature=0,
-    #     max_tokens=None,
-    #     timeout=None,
-    #     max_retries=2,
-    # )
+    # Question-answering system prompt
+    qa_system_prompt = (
+        "Anda adalah Chatbot yang sangat membantu di lingkungan Kelurahan Keputih. Nama Anda adalah BambuBot."
+        "Anda dinamakan BambuBot karena di Kelurahan Keputih terdapat hutan bambu yang ikonik dan menjadi ciri khas."
+        "Gunakan potongan konteks berikut untuk menjawab pertanyaan. Jika Anda tidak tahu jawabannya, "
+        "katakan 'Maaf, saya tidak tahu jawabannya'."
+        "\n\n\"{context}\""
+    )
 
-    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True, output_key='answer')
+    qa_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", qa_system_prompt),
+            MessagesPlaceholder("chat_history"),
+            ("human", "{input}")  # This is where the user's query will be inserted
+        ]
+    )
 
-    chain = ConversationalRetrievalChain.from_llm(
-        llm=llm,
-        chain_type='stuff',
-        retriever=vector_store.as_retriever(search_kwargs={"k": 3}),
-        return_source_documents=True,
-        memory=memory,
-        combine_docs_chain_kwargs={
-            "prompt": prompt_template,
-            "document_variable_name": "context" 
-        },        
-    )    
-    
-    return chain
+    # Create a document chain for answering questions using retrieved context
+    question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
+
+    # Combine the history-aware retriever with the question-answer chain
+    rag_chain = create_retrieval_chain(
+        history_aware_retriever, question_answer_chain
+    )
+
+    return rag_chain
 
 # Function to save uploaded file to the server
 def save_uploaded_file(uploaded_file):
@@ -107,7 +122,7 @@ def load_saved_files():
 # Function to split documents into smaller chunks
 def split_documents(text):
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
+        chunk_size=1000,
         chunk_overlap=100,
         length_function=len,
         is_separator_regex=False,

@@ -55,7 +55,9 @@ def create():
         if not title:
             return jsonify({"error": "File name is invalid"}), 400
         
-        new_document = Document(title=title, file=file.read())
+        filepath = os.path.normpath(os.path.join('data', title))
+
+        new_document = Document(title=title, path=filepath)
         db.session.add(new_document)
         db.session.commit()
         
@@ -74,8 +76,10 @@ def update(id):
         
         file = request.files.get('file')
         if file:
-            document.file = file.read()
             document.title = secure_filename(file.filename)
+            document.path = os.path.normpath(os.path.join('data', document.title))
+            with open(document.path, 'wb') as f:
+                f.write(file.read())                
         
         db.session.commit()
         logging.info(f"Updated document with ID: {id}")
@@ -115,18 +119,14 @@ def reload_vector_db():
             if document.id in metadatas_document_id:
                 logging.info(f"Document {document.id} already exists in the vector store.")
                 continue
-            if not document.file:
-                logging.info(f"Document {document.id} has no file.")
+            if not document.path:
+                logging.info(f"Document {document.id} has no path.")
                 continue
 
             if not os.path.exists('data'):
                 os.makedirs('data')
 
-            file_path = os.path.join('data', secure_filename(document.title))
-            with open(file_path, 'wb') as f:
-                f.write(document.file)
-            
-            all_text = extract_text_from_file(file_path)
+            all_text = extract_text_from_file(document.path)
             if not all_text.strip():
                 logging.warning(f"Failed to extract text from document {document.title}")
                 continue
@@ -148,8 +148,8 @@ def reload_vector_db():
                 logging.info(f"Added document {document.title} with vector ID {document_obj.metadata['id']}")
         
         # Remove files in the data directory
-        for file in os.listdir('data'):
-            os.remove(os.path.join('data', file))
+        # for file in os.listdir('data'):
+        #     os.remove(os.path.join('data', file))
 
         # Remove vectors that no longer exist in the SQL database
         for metadata in metadatas:
