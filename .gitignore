@@ -1,6 +1,6 @@
-/__pycache__
-/app/__pycache__/*
-/.vscode
+__pycache__
+app/__pycache__
+.vscode
 .venv/
 .env
 vector_store
