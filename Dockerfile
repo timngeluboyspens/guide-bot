@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r linux-requirements.txt
 RUN chmod +x /app/install_packages.sh
 
 # Jalankan shell script untuk menginstall sistem packages
-RUN ./app/install_packages.sh
+RUN /app/install_packages.sh
 
 # Eksekusi aplikasi Flask dengan Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--log-level", "info", "wsgi:app"]
