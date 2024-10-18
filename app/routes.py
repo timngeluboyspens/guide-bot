@@ -57,6 +57,12 @@ def create():
         
         filepath = os.path.normpath(os.path.join('data', title))
 
+        if not os.path.exists('data'):
+            os.makedirs('data', exist_ok=True)
+
+        with open(filepath, 'wb') as f:
+            f.write(file.read())
+
         new_document = Document(title=title, path=filepath)
         db.session.add(new_document)
         db.session.commit()
@@ -78,6 +84,10 @@ def update(id):
         if file:
             document.title = secure_filename(file.filename)
             document.path = os.path.normpath(os.path.join('data', document.title))
+            
+            if not os.path.exists('data'):
+                os.makedirs('data', exist_ok=True)
+            
             with open(document.path, 'wb') as f:
                 f.write(file.read())                
         
@@ -96,6 +106,10 @@ def delete(id):
         document = Document.query.get_or_404(id)
         db.session.delete(document)
         db.session.commit()
+        
+        if os.path.exists(document.path):
+            os.remove(document.path)
+
         logging.info(f"Deleted document with ID: {id}")
         return {"message": "Document deleted successfully"}, 200
     except Exception as e:
