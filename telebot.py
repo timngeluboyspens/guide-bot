@@ -1,3 +1,4 @@
+import os
 from typing import Final
 from telegram import Update
 from telegram.ext import ApplicationBuilder
@@ -70,3 +71,10 @@ class TelegramBot:
 
     def stop(self):
         self.app.shutdown()
+
+if __name__ == '__main__':
+    TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+    BOT_USERNAME = "@bambubot"
+
+    bot = TelegramBot(TOKEN, BOT_USERNAME)
+    bot.run()

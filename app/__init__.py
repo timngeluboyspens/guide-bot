@@ -1,22 +1,19 @@
 # app/__init__.py
+import asyncio
 from base64 import b64encode
 import os
-import signal
 import threading
+import asyncio
 from app.extensions import db, migrate, swagger
 from flask import Flask, Response, request, session
 from flask_session import Session
 from datetime import timedelta
 from flask_cors import CORS
 
-from app.telegram_bot import TelegramBot
-
 def create_app():
-    global bot_thread
-    
     app = Flask(__name__)
     app.config.from_object('config.Config')
-    
+
     # Inisialisasi session
     Session(app)
 
@@ -37,7 +34,7 @@ def create_app():
     CORS(api_bp)
     CORS(document_bp)
     CORS(conversations_bp)
-    app.register_blueprint(api_bp)    
+    app.register_blueprint(api_bp)
     app.register_blueprint(document_bp)
     app.register_blueprint(conversations_bp)
 
@@ -59,7 +56,6 @@ def create_app():
         expose_headers=["Accept", "Content-Type", "Authorization"]        
     )
     
-
     @app.route('/')
     def home():
         return "Welcome to the Guide Bot API!"
