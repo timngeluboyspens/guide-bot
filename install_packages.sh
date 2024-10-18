@@ -9,6 +9,8 @@ packages=(
     "libreoffice"
     "tesseract-ocr"
     "libtesseract-dev"
+    "libmagic1" 
+    "libmagic-dev"
 )
 
 echo "Installing packages..."
@@ -18,3 +20,4 @@ for package in "${packages[@]}"; do
 done
 
 echo "All packages installed successfully!"
+
