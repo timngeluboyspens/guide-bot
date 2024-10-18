@@ -16,5 +16,8 @@ RUN chmod +x /app/install_packages.sh
 # Jalankan shell script untuk menginstall sistem packages
 RUN /app/install_packages.sh
 
-# Eksekusi aplikasi Flask dengan Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--log-level", "info", "wsgi:app"]
+# Berikan permission untuk eksekusi script yang menjalankan aplikasi
+RUN chmod +x /app/start.sh
+
+# Eksekusi skrip yang menjalankan Flask dan Telegram bot
+CMD ["/app/start.sh"]
