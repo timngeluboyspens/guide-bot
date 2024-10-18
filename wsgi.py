@@ -7,6 +7,7 @@ from app import create_app
 from app.telegram_bot import TelegramBot
 
 bot = None
+app = None
 
 def polling_bot():
     global bot
