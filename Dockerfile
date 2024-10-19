@@ -13,9 +13,6 @@ RUN pip install --no-cache-dir -r linux-requirements.txt
 # Install unstructured
 RUN pip install "unstructured[all-docs]"
 
-# Download dan set path pandoc https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-1-amd64.deb
-RUN wget https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-1-amd64.deb -O /app/pandoc-3.5-1-amd64.deb
-
 # Install pandoc
 RUN dpkg -i /app/pandoc-3.5-1-amd64.deb
 
