@@ -1,5 +1,5 @@
-# Gunakan image dasar Python
-FROM python:3.10-slim
+# Gunakan unstructured Docker image sebagai base image
+FROM downloads.unstructured.io/unstructured-io/unstructured:latest
 
 # Setel direktori kerja di dalam container
 WORKDIR /app
@@ -9,12 +9,6 @@ COPY . .
 
 # Install dependencies dari linux-requirements.txt
 RUN pip install --no-cache-dir -r linux-requirements.txt
-
-# Install unstructured
-RUN pip install "unstructured[all-docs]"
-
-# Jalankan file download_pandoc.py
-RUN python download_pandoc.py
 
 # Berikan permission untuk eksekusi script
 RUN chmod +x /app/install_packages.sh
