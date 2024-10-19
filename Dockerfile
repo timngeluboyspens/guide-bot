@@ -10,6 +10,9 @@ COPY . .
 # Install dependencies dari linux-requirements.txt
 RUN pip install --no-cache-dir -r linux-requirements.txt
 
+# Install unstructured
+RUN pip install "unstructured[all-docs]"
+
 # Berikan permission untuk eksekusi script
 RUN chmod +x /app/install_packages.sh
 
