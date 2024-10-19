@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r linux-requirements.txt
 # Install unstructured
 RUN pip install "unstructured[all-docs]"
 
+# Jalankan file download_pandoc.py
+RUN python download_pandoc.py
+
 # Berikan permission untuk eksekusi script
 RUN chmod +x /app/install_packages.sh
 
