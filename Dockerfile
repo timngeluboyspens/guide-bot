@@ -1,5 +1,5 @@
 # Gunakan image dasar Python
-FROM python:3.11-slim
+FROM python:3.10-slim
 
 # Setel direktori kerja di dalam container
 WORKDIR /app
@@ -12,6 +12,13 @@ RUN pip install --no-cache-dir -r linux-requirements.txt
 
 # Install unstructured
 RUN pip install "unstructured[all-docs]"
+
+# Install pypandoc
+RUN pip install pypandoc
+
+# Fix typo in pandoc_download.py for pypandoc
+RUN sed -i 's/cmd = \["ar", "x", filename\]/cmd = \["tar", "xvf", filename\]/' \
+    $(python -c "import pypandoc; print(pypandoc.__file__)")/pandoc_download.py
 
 # Berikan permission untuk eksekusi script
 RUN chmod +x /app/install_packages.sh
