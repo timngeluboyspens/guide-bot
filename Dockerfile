@@ -1,5 +1,5 @@
-# Gunakan unstructured Docker image sebagai base image
-FROM downloads.unstructured.io/unstructured-io/unstructured:latest
+# Gunakan image dasar Python
+FROM python:3.10-slim
 
 # Setel direktori kerja di dalam container
 WORKDIR /app
@@ -9,6 +9,18 @@ COPY . .
 
 # Install dependencies dari linux-requirements.txt
 RUN pip install --no-cache-dir -r linux-requirements.txt
+
+# Install unstructured
+RUN pip install "unstructured[all-docs]"
+
+# Download dan set path pandoc https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-1-amd64.deb
+RUN wget https://github.com/jgm/pandoc/releases/download/3.5/pandoc-3.5-1-amd64.deb -O /app/pandoc-3.5-1-amd64.deb
+
+# Install pandoc
+RUN dpkg -i /app/pandoc-3.5-1-amd64.deb
+
+# Set path pandoc
+ENV PATH="/usr/local/bin/pandoc:${PATH}"
 
 # Berikan permission untuk eksekusi script
 RUN chmod +x /app/install_packages.sh
