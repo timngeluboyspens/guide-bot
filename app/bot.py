@@ -9,7 +9,6 @@ from langchain.chains import create_history_aware_retriever, create_retrieval_ch
 from langchain_groq import ChatGroq
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEmbeddings, HuggingFaceEndpoint, HuggingFacePipeline
 from unstructured.partition.auto import partition
-from pypandoc.pandoc_download import download_pandoc
 import logging
 
 # Configure logging
@@ -17,11 +16,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # Embeddings
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'})
-
-user_home = os.path.expanduser("~")
-pandoc_bin = os.path.join(user_home, "bin/pandoc")
-if not os.path.exists(pandoc_bin):
-    download_pandoc()
 
 # Extracting text from uploaded file
 def extract_text_from_file(file_path):  
