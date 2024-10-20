@@ -19,11 +19,8 @@ RUN dpkg -i /app/pandoc-3.5-1-amd64.deb
 # Set path pandoc
 ENV PATH="/usr/local/bin/pandoc:${PATH}"
 
-# Berikan permission untuk eksekusi script
-RUN chmod +x /app/install_packages.sh
-
-# Jalankan shell script untuk menginstall sistem packages
-RUN /app/install_packages.sh
+# Install "poppler-utils" "libreoffice" "tesseract-ocr" "libtesseract-dev" "libmagic1" "libmagic-dev"
+RUN apt-get update && apt-get install -y poppler-utils libreoffice tesseract-ocr libtesseract-dev libmagic1 libmagic-dev
 
 # Berikan permission untuk eksekusi script yang menjalankan aplikasi
 RUN chmod +x /app/start.sh
