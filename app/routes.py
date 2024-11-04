@@ -1,5 +1,5 @@
 # guide_bot/routes.py
-from flask import Blueprint, abort, jsonify, render_template, redirect, send_file, url_for, flash, request, session
+from flask import Blueprint, Response, abort, jsonify, render_template, redirect, send_file, url_for, flash, request, session
 import markdown
 from app import db
 from dotenv import load_dotenv
@@ -12,6 +12,7 @@ from app.docs import api_docs
 import logging
 import uuid
 from flasgger import swag_from
+import cv2
 
 load_dotenv()
 
