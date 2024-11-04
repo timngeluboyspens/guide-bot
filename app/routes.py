@@ -324,30 +324,3 @@ def chat(conversation_id):
     except Exception as e:
         logging.error(f"Error in chatbot: {str(e)}")
         return jsonify({"error": "An error occurred during the chat process"}), 500
-    
-# CCTV STREAM
-@api_bp.route('/cctv-stream', methods=['GET'])
-def cctv_stream():
-    def generate_frames():
-        cap = cv2.VideoCapture(os.getenv('STREAM_URL'))
-        if not cap.isOpened():
-            print("Error: Unable to open video stream")
-            return
-        
-        while True:
-            success, frame = cap.read()
-            if not success:
-                print("Error: Unable to read frame")
-                break
-            else:
-                ret, buffer = cv2.imencode('.jpg', frame)
-                if not ret:
-                    print("Error: Unable to encode frame")
-                    break
-                frame = buffer.tobytes()
-                yield (b'--frame\r\n'
-                       b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-        
-        cap.release()
-                
-    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
