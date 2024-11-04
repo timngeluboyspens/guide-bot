@@ -140,8 +140,9 @@ def reload_vector_db():
 
             if not os.path.exists('data'):
                 os.makedirs('data')
-
-            all_text = extract_text_from_file(document.path)
+            
+            file_path = os.path.normpath(document.path)
+            all_text = extract_text_from_file(file_path)
             if not all_text.strip():
                 logging.warning(f"Failed to extract text from document {document.title}")
                 continue
@@ -163,8 +164,8 @@ def reload_vector_db():
                 logging.info(f"Added document {document.title} with vector ID {document_obj.metadata['id']}")
         
         # Remove files in the data directory
-        # for file in os.listdir('data'):
-        #     os.remove(os.path.join('data', file))
+        for file in os.listdir('data'):
+            os.remove(os.path.join('data', file))
 
         # Remove vectors that no longer exist in the SQL database
         for metadata in metadatas:
