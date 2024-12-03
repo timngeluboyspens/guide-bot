@@ -4,6 +4,7 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.memory import ConversationBufferMemory
 from langchain_chroma import Chroma
+from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
@@ -236,19 +237,26 @@ def save_uploaded_file(uploaded_file):
     return file_path
 
 # Loads data from static CSV files
-def load_static_data():
+def load_static_data(category, path = './app/static/data'):
+    if (category == 'menu'):
+        path += '/menu'
+    elif (category == 'context'):
+        path += '/context'
+    else:
+        return None
+    
     # Load and process 'kependudukan' data
-    kependudukan = pd.read_csv('./app/static/data/kependudukan.csv')
+    kependudukan = pd.read_csv(f'{path}/kependudukan.csv')
     kependudukan.dropna(inplace=True)
     kependudukan['type'] = 'kependudukan'
     
     # Load and process 'non-kependudukan' data
-    non_kependudukan = pd.read_csv('./app/static/data/non-kependudukan.csv')
+    non_kependudukan = pd.read_csv(f'{path}/non-kependudukan.csv')
     non_kependudukan.dropna(inplace=True)
     non_kependudukan['type'] = 'non_kependudukan'
     
     # Load and process 'others' data
-    others = pd.read_csv("./app/static/data/others.csv")
+    others = pd.read_csv(f"{path}/others.csv")
     others.dropna(inplace=True)
     others['type'] = 'others'
     
@@ -277,4 +285,28 @@ def load_vector_store(embeddings):
         embedding_function=embeddings or HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'}), 
         persist_directory="vector_store"
     )
+    return vector_store
+
+def load_static_vector_store(embeddings):
+    # Load context data
+    context_data = load_static_data('context')
+        
+    # Convert the DataFrame to a list of documents
+    documents = []
+    for index, row in context_data.iterrows():
+        doc = Document(id=(1 + index), page_content=row['jawaban'], metadata={
+            "category": row['kategori'], 
+            "sub_category": row['sub_kategori'], 
+            "object": row['objek'],
+            "service_source": row['media_layanan'],                
+        })
+        documents.append(doc)
+
+    vector_store = Chroma.from_documents(
+        collection_name="chatbot",
+        documents=documents,
+        embedding=embeddings,
+        persist_directory="vector_store"
+    )
+
     return vector_store

@@ -5,7 +5,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder
 from telegram.ext import CommandHandler, MessageHandler, filters, ContextTypes
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
-from app.bot import create_conversational_chain, conversation_chat, generate_answer, load_vector_store, load_static_data, get_welcome_message, get_profile_info, generate_questions_message
+from app.bot import create_conversational_chain, conversation_chat, generate_answer, load_vector_store, load_static_vector_store, load_static_data, get_welcome_message, get_profile_info, generate_questions_message
 
 class TelegramBot:
     def __init__(self, token: str, username: str):
@@ -14,12 +14,12 @@ class TelegramBot:
         # self.app = Application.builder().token(self.TOKEN).build()
         self.app = ApplicationBuilder().token(self.TOKEN).build()
         
-        # Load embeddings and vector store
+        # Load menu data
+        self.menu_data = load_static_data('menu')
+        
+        # Load embeddings and vector store    
         self.embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'})
-        self.vector_store = load_vector_store(self.embeddings)
-
-        # Load static data
-        self.static_data = load_static_data()
+        self.vector_store = load_static_vector_store(self.embeddings)
 
         # Create the conversational chain
         self.conversational_chain = create_conversational_chain(self.vector_store)
@@ -42,7 +42,7 @@ class TelegramBot:
         category = match.group(1)
         page = int(match.group(2)) if match.group(2) else 1
 
-        response = generate_questions_message(self.static_data, category, page)
+        response = generate_questions_message(self.menu_data, category, page)
         return update.message.reply_text(response, parse_mode='HTML')
 
     def handle_answer_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -54,7 +54,7 @@ class TelegramBot:
         category = match.group(1)
         index = int(match.group(2))
 
-        response = generate_answer(self.static_data, category, index)
+        response = generate_answer(self.menu_data, category, index)
         return update.message.reply_text(response, parse_mode='HTML')
 
     def handle_response(self, query: str) -> str:
