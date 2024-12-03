@@ -29,7 +29,7 @@ def get_welcome_message():
     return """🌿 <b>Selamat datang di Bambu Bot!</b>
 Asisten digital Anda untuk semua informasi dan layanan di Kelurahan Keputih.
 
-Saya siap membantu Anda dengan cepat dan mudah! Berikut adalah perintah yang dapat Anda gunakan:
+Saya siap membantu Anda dengan cepat dan mudah! Berikut beberapa layanan yang bisa Anda tanyakan:
 
 /kependudukan: Informasi tentang layanan kependudukan.
 /non_kependudukan: Informasi tentang layanan non-kependudukan.
