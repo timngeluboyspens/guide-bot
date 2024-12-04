@@ -1,0 +1,726 @@
+kategori,sub_kategori,objek,media_layanan,jawaban
+Persyaratan Dokumen,Pembuatan,Akta Perceraian,Website KLAMPID v2,"Persyaratan Akta Perceraian:
+1. Akta Kawin 
+2. Surat Pengantar Pengadilan 
+3. Kartu Keluarga 
+4. Salinan putusan pengadilan bagian sampul 
+5. Salinan putusan pengadilan bagian mengadili
+6. Foto 3 x 4"
+Panduan Layanan,Pembuatan,Akta Perceraian,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan 
+3. Pilih layanan ""Akta Perceraian""
+4. Klik ""Lanjutkan""
+5. Mengisi formular permohonan pada ""cak takon""
+6. Memasukkan data pelapor mulai dari NIK hingga nomer telepon dan bubuhkan tanda tangan pelapor pada kolom tanda tangan dan klik ""simpan data"".
+7. Setelah data pelapor terisi, maka masukkan ""Data Istri"". Mengisi data mulai dari data NIK istri sampai Nomor telepon istri. Kemudian klik ""Simpan Data"".
+8. Langkah selanjutnya, memasukkan ""Data Suami"". Jika sudah terisi kemudian klik ""Simpan Data""
+9. Langkah selanjutnya mengisi data perceraian kemudian klik ""SIMPAN"".
+10. Melengkapi dokumen untuk persyaratan data perceraian.
+11. Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti
+12. Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil."
+Biaya Dokumen,Pembuatan,Akta Perceraian,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Pembuatan,Akta Perkawinan,Website KLAMPID v2,"Persyaratan Akta Perkawinan dan Cetak KK:
+1. Surat Keterangan kawin dari pemuka agama
+2. Pas Foto 4x6 calon mempelai
+3. KK (bila calon mempelai bukan KK Surabaya)
+4. Lampiran perjanjian pernikahan
+5. Denda
+6. Surat Keterangan tidak ada halangan menikah"
+Panduan Layanan,Pembuatan,Akta Perkawinan,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan 
+3. Pilih layanan ""akta perkawinan""
+4. Klik ""Lanjutkan""
+5. Menjawab pertanyaan dan Mengisi formulir permohonan pelapor pada ""Cak Takon""
+6. Memasukkan data pelapor mulai dari NIK hingga nomer telepon dan bubuhkan tanda tangan pelapor pada kolom tanda tangan.
+7. Klik simpan data
+8. Langkah selanjutnya, mengisi data calon istri dan klik simpan
+9. Setelah “data calon istri” tersimpan, langkah selanjutnya yakni mengisi “data calon suami”. Kemudian klik “simpan data”
+10. Langkah selanjutnya mengisi “data saksi”. Jika sudah mengisi semua klik “Simpan data”
+12. Setelah data saksi sudah terisi semua, langkah terakhir adalah melengkapi “data perkawinan”, kemudian klik tombol “Simpan data”
+13. Silahklkan melengkapi dokumen untuk persyaratan akta perkawinan
+14. Setelah dokumen berhasil terupload, maka cak takon akan memberikan bukti e-kitir
+15. Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil terselesaikan"
+Biaya Dokumen,Pembuatan,Akta Perkawinan,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Salinan,Akta Kelahiran,Website KLAMPID v2,"Persyaratan Salinan Akta Kelahiran (Hanya untuk Dokumen Migrasi ke Luar Negeri):
+1. Fotocopy KK
+2. Fotocopy KTP
+3. Fotocopy Akta Kelahiran"
+Panduan Layanan,Salinan,Akta Kelahiran,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan  
+3. Pilih layanan ""Salinan Akta Kelahiran (Hanya untuk Dokumen Migrasi ke Luar Negeri)""
+4. Klik ""Lanjutkan""
+5. Mengisi formular permohonan pada ""cak takon"", silakan pilih jawaban sesuai kebutuhan pemohon
+        5.1. Jika memilih menu akta rusak atau hilang, silakan mengajukan permohonan di menu Kutipan Kedua Akta Catatan Sipil
+        5.2. Jika yang dipilih untuk pengurusan keperluan dokumen ke Luar Negeri maka silakan isi formulir permohonan yang diminta
+
+6. Memasukkan data pelapor mulai dari NIK hingga nomer telepon dan bubuhkan tanda tangan pelapor pada kolom tanda tangan.
+7. Klik simpan data
+8. Setelah data pelapor  terisi, masukkan ""Data Akta"" mulai dari kode cetak akta hingga nama
+9. Langkah selanjutnya, masukkan ""Data Perubahan Nama""
+10. Langkah terakhir, masukkan ""Data yang Dilaporkan""
+11. Setelah mengisi formulir permohonan secara lengkap, maka unggah dokumen persyaratan yang diperlukan
+12. Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir dan petugas akan melakukan verifikasi atas permohonan yang diajukan
+"
+Biaya Dokumen,Salinan,Akta Kelahiran,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Perubahan Nama,Akta Perkawinan,Website KLAMPID v2,"Persyaratan Perubahan Nama Akta Perkawinan:
+1. KTP Suami
+2. KK Suami
+3. KTP Istri
+4. KK Istri
+5. Akta Perkawinan
+6. Dokumen Pendukung
+7. Dokumen Pendukung (Akta Kelahiran/Penetapan PN/Presidium Kabinet/Kemenkumham)
+8. Dokumen Perjalanan Bagi Orang Asing
+9. Surat Konfirmasi Keabsahan Luar Kota (Jika Akta Luar Kota)
+10. Bukti Denda Sebesar (Rp500.000) Jika Tanggal Putusan Pengadilan sampai dengan Pengurusan "
+Panduan Layanan,Perubahan Nama,Akta Perkawinan,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan  
+3. Pilih layanan ""Perubahan nama akta perkawinan""
+4. Klik ""Lanjutkan""
+5. Mengisi formular permohonan pada ""cak takon"",  Pemohon akan ditanyakan apakah akta tersebut terbitan kota surabaya atau luar kota, pilih ""ya"" jika akta terbitan kota surabaya atau pilih ""tidak"" jika akta terbitan luar kota surabaya
+6. Memasukkan data pelapor mulai dari NIK hingga nomer telepon dan bubuhkan tanda tangan pelapor pada kolom tanda tangan.
+7. Klik simpan data
+8. Setelah data pelapor terisi, selanjutnya mengisi data akta perkawinan sesuai data akta perkawinan. Kemudian klik simpan
+9. Langkah selanjutnya, memasukkan data akta perkawinan yang akan di ubah atau data yang sebenarnya. Kemudian klik simpan
+10. Langkah selanjutnya, memasukkan data pendukung perubahan seperti akta kelahiran, penetapan pn, presidium kabinet atau kemenkumham 
+11 Melengkapi dokumen untuk persyaratan perubahan nama akta perkawinan terbitan kota surabaya
+12. Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir
+13. Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil"
+Biaya Dokumen,Perubahan Nama,Akta Perkawinan,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Perubahan Nama, Akta Perceraian,Website KLAMPID v2,"1. KTP Suami
+2. KK Suami
+3. KTP Istri
+4. KK Istri
+5. Akta Perceraian
+6. Dokumen Pendukung (Akta Kelahiran/Penetapan PN/Presidium Kabinet/Kemenkumham)
+7. Dokumen Perjalanan Bagi Orang Asing
+8. Bukti Denda Sebesar (Rp500.000) Jika Tanggal Putusan Pengadilan sampai dengan Pengurusan Lebih Dari 30 Hari Kerja
+9. Surat Konfirmasi Keabsahan Luar Kota (Jika Akta Luar Kota)"
+Panduan Layanan,Perubahan Nama, Akta Perceraian,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan  
+3. Pilih layanan ""Perubahan nama akta perceraian""
+4. Klik ""Lanjutkan""
+5. Silakan pilih jenis terbitan Akta Perceraian sesuai terbitan akta perceraian Anda. Jika akta 
+perceraian Anda terbitan kota Surabaya maka pilih “ya” dan jika akta perceraian Anda bukan terbitan kota Surabaya maka pilih “tidak”
+6. Pada ""Cak Takon"", Lengkapi formulir yang diminta
+7. Lengkapi “Data Pelapor”
+8. Bubuhkan tanda tangan pada kolom “Tanda Tangan Pelapor” dan klik “Simpan Data”
+9. Lengkapi “Data Akta Perceraian” kemudian klik  “Simpan Data”
+10. Lengkapi “Data Perubahan Nama” dan klik “Simpan Data”
+11. Langkah selanjutnya, pilih salah satu “Data Dokumen Pendukung” yang akan dimasukkan, bisa berupa Akta Kelahiran, Penetapan PN, Presidium Kabinet, dan Kemenkumham kemudian klik “Simpan Data” 
+12. Unggah dokumen persyaratan yang diperlukan untuk pengurusan perubahan nama Akta Perceraian terbitan kota Surabaya seperti KTP Suami, KK Suami, KTP Suami, KK Istri, Akta Perceraian, Dokumen Pendukung, Dokumen Perjalanan bagi Orang Asing, dan Bukti Denda
+13. Setelah dokumen berhasil terunggah, maka Cak Takon akan memberikan bukti e-kitir
+14. Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil terselesaikan dan mohon 
+ditunggu hingga petugas selesai melakukan verifikasi "
+Biaya Dokumen,Perubahan Nama, Akta Perceraian,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Pelaporan,Kematian Luar Negeri,Website KLAMPID v2,"Persyaratan Pelaporan Kematian Luar Negeri:
+1. Akta kematian luar negeri
+2. Surat keterangan dari KBRI atau KJRI
+3. Surat terjemahan akta kematian luar negeri yang dikeluarkan Lembaga penerjemah
+4. KK KTP pelapor (harus keluarga)
+5. Paspor bapak, ibu, anak
+6. Akta perkawina"
+Panduan Layanan,Pelaporan,Kematian Luar Negeri,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan  
+3. Pilih layanan “Pelaporan Kematian Luar Negeri""
+4. Klik ""Lanjutkan""
+5. Mengisi formulir permohonan pelapor pada ""Cak Takon""
+6. Memasukkan data pelapor mulai dari NIK hingga nomer telepon dan bubuhkan tanda tangan pelapor pada kolom tanda tangan
+7. Klik simpan data
+8. Setelah data pelapor terisi, maka memasukkan data kematian luar negeri
+9. Langkah selanjutnya, memasukkan data orang tua jenazah
+10. Melengkapi dokumen untuk persyaratan pelaporan kematian luar negeri
+11. Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir 
+12. Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil"
+Biaya Dokumen,Pelaporan,Kematian Luar Negeri,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Pelaporan,Perceraian Luar Negeri,Website KLAMPID v2,"Persyaratan Pelaporan Perceraian Luar Negeri: 
+1. KTP Suami 
+2. KK Suami 
+3. KTP Istri 
+4. KK Istri 
+5. Passport Suami 
+6. Passport Istri 
+7. Akta Cerai Suami dan Istri sesuai dengan Negara/Lembaga Penerbit Akta 
+8. Surat Pelaporan Di KBRI/KJRI Negara Setempat
+9. Perjanjian Kawin Yang Telah Dilegalisir Notaris Yang Membuat (opsional) 
+10. Surat Pernyataan Tidak Dalam Keadaan Pailit (Bermaterai) 
+11. Surat Denda jika Lebih Dari 30 Hari Kerja (opsional) 
+12. Surat Berbahasa Asing Diterjemahkan Oleh Penerjemah Tersumpah "
+Panduan Layanan,Pelaporan,Perceraian Luar Negeri,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan  
+3. Pilih layanan “Pelaporan Perceraian Luar Negeri""
+4. Klik ""Lanjutkan""
+5. Setelah memasukkan NIK, Cak Takon akan mengarahkan Anda untuk membaca “Terms and Condition” dan “Privacy Policy”. Lalu klik “Ya, lanjutkan”
+6. Masukkan NIK Anda
+7. Setelah itu Anda diminta untuk melengkapi formulir permohonan, mulai Data Pelapor hingga Data Perceraian
+8. Lengkapi Data Pelapor, mulai dari NIK Pelapor hingga membubuhkan tanda tangan. Lalu klik “Simpan Data” 
+9. Lengkapi Data Suami, mulai dari NIK Suami hingga Alamat Suami. Lalu klik “Simpan Data” 
+10. Lengkapi Data Istri, mulai dari NIK Istri hingga Alamat Istri. Lalu klik “Simpan Data” 
+11. Lengkapi Data Perceraian, mulai dari Nomor Akta Perceraian hingga Alamat Perceraian. Lalu klik “Simpan Data”
+12. Setelah melengkapi Data Pelapor, Data Suami, Data Istri, dan Data Perceraian, maka Anda diminta untuk mengunggah dokumen persyaratan
+13. Dokumen yang dibutuhkan pada layanan Pelaporan Perceraian Luar Negeri antara lain: KTP Suami, KK Suami, KTP Istri, KK Istri, Passport Suami, Passport Istri, Akta Cerai Suami dan Istri sesuai dengan Negara/Lembaga Penerbit Akta, Surat Pelaporan Di KBRI/KJRI Negara Setempat, Perjanjian Kawin Yang Telah Dilegalisir Notaris Yang Membuat (opsional), Surat Pernyataan Tidak Dalam Keadaan Pailit (Bermaterai), Surat Denda jika Lebih Dari 30 Hari Kerja (opsional), dan Surat Berbahasa Asing Diterjemahkan Oleh Penerjemah Tersumpah
+14. Setelah selesai mengunggah dokumen, maka klik “Simpan dan Tutup” 
+15. Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir
+16. Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil"
+Biaya Dokumen,Pelaporan,Perceraian Luar Negeri,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Pelaporan,Perkawinan Luar Negeri,Website KLAMPID v2,"Persyaratan Pelaporan Perkawinan Luar Negeri: 
+1. KTP Suami 
+2. KK Suami 
+3. KTP Istri 
+4. KK Istri 
+5. Passport Suami 
+6. Passport Istri 
+7. Akta Nikah Suami dan Istri sesuai dengan Negara/Lembaga Penerbit Akta
+8. Surat Pelaporan Di KBRI/KJRI Negara Setempat
+9. Perjanjian Kawin yang Telah Dilegalisir Notaris
+10. Surat Pernyataan Tidak Dalam Keadaan Pailit (Bermaterai) 
+11. Bukti Pembayaran Denda jika Lebih dari 30 Hari Kerja
+12. Surat Berbahasa Asing Diterjemahkan Oleh Penerjemah Tersumpah "
+Panduan Layanan,Pelaporan,Perkawinan Luar Negeri,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan  
+3. Pilih layanan “Pelaporan Perkawinan Luar Negeri""
+4. Klik ""Lanjutkan""
+5. Mengisi  formulir permohonan pelapor pada ""Cak Takon""
+6. Masukkan data pelapor mulai dari NIK hingga nomer telepon dan bubuhkan tanda tangan pelapor pada kolom tanda tangan
+7. Klik simpan data
+8. Setelah data pribadi terisi, masukkan “ Data  Suami” mulai dari NIK hingga alamat suami
+9. Langkah selanjutnya, memasukkan “Data Istri” mulai dari NIK hingga alamat istri 
+10. Langkah selanjutnya, masukkan “Data Perkawinan”
+11. Lengkapi dokumen untuk persyaratan pelaporan perkawinan luar negeri
+12. Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir
+13. Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil terselesaikan"
+Biaya Dokumen,Pelaporan,Perkawinan Luar Negeri,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Perubahan Peristiwa Penting,Akta Kematian Kota Surabaya,Website KLAMPID v2,"Persyaratan  Perubahan Peristiwa Penting (Akta Kematian Kota Surabaya): 
+1. Kartu Keluarga (Wajib Dilengkapi)
+2. KTP Pemohon (Wajib Dilengkapi)
+3. KTP Jenazah (Wajib Dilengkapi)
+4. KK Jenazah (Wajib Dilengkapi)
+5. Akta Kematian Jenazah (Wajib Dilengkapi)
+6. Legalisir Penetapan Pengadilan Negeri (Jika Melalui PN) "
+Panduan Layanan,Perubahan Peristiwa Penting ,Akta Kematian Kota Surabaya,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan  
+3. Pilih layanan ""Perubahan Peristiwa Penting (Akta Kematian Kota Surabaya)""
+4. Klik ""Lanjutkan""
+5. Pilih Akta terbitan Kota Surabaya bila akta terbitan Surabaya
+6. Selanjutnya mengisi formulir data pelapor, data jenazah dan data akta jenazah yang akan di ubah
+7. Memasukkan data pelapor mulai dari NIK hingga nomer telepon dan bubuhkan tanda tangan pelapor pada kolom tanda tangan
+8. Setelah data pelapor, maka memasukkan data jenazah sesuai data yang di akta kematian sebelum di ubah
+9. Langkah selanjutnya, memasukkan data jenazah menjadi data akta kematian yang benar atau yang akan di ubah saja serta pilih intansi yang mengeluarkan dokumen pendukung perubahan elemen data yang akan di rubah. Kemudian klik simpan
+10. Melengkapi dokumen untuk persyaratan perubahan Peristiwa Penting (Akta Kematian Kota Surabaya)
+11. Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir
+12. Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil
+13. Selanjutnya permohonan akan di proses oleh petugas dan akan muncul pemberitahuan dichat cak Takon untuk mengetahui sampai mana proses permohonan"
+Biaya Dokumen,Perubahan Peristiwa Penting,Akta Kematian Kota Surabaya,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Perubahan Peristiwa Penting,Akta Kematian Luar Kota Surabaya,Website KLAMPID v2,"Persyaratan  Perubahan Peristiwa Penting (Akta Kematian Kota Surabaya): 
+1. Kartu Keluarga (Wajib Dilengkapi)
+2. KTP Pemohon (Wajib Dilengkapi)
+3. KTP Jenazah (Wajib Dilengkapi)
+4. KK Jenazah (Wajib Dilengkapi)
+5. Akta Kematian Jenazah (Wajib Dilengkapi)
+6. Legalisir Penetapan Pengadilan Negeri (Jika Melalui PN) "
+Panduan Layanan,Perubahan Peristiwa Penting,Akta Kematian Luar Kota Surabaya,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1. Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2. Pilih menu layanan  
+3. Pilih layanan ""Perubahan Peristiwa Penting (Akta Kematian Kota Surabaya)""
+4. Klik ""Lanjutkan""
+5. Pilih Akta terbitan Luar Kota Surabaya bila akta terbitan Kota luar Surabaya
+6. Selanjutnya mengisi formulir data pelapor, data jenazah dan data akta jenazah yang akan di ubah
+7. Memasukkan data pelapor mulai dari NIK hingga nomer telepon dan bubuhkan tanda tangan pelapor pada kolom tanda tangan
+8. Setelah data pelapor, maka memasukkan data jenazah sesuai data yang di akta kematian sebelum di ubah
+9. Langkah selanjutnya, memasukkan data jenazah menjadi data akta kematian yang benar atau yang akan di ubah saja serta pilih intansi yang mengeluarkan dokumen pendukung perubahan elemen data yang akan di ubah. Kemudian klik simpan
+10. Melengkapi dokumen untuk persyaratan perubahan Peristiwa Penting (Akta Kematian Kota Surabaya)
+11. Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir
+12. Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil
+13. Selanjutnya permohonan akan di proses oleh petugas dan akan muncul pemberitahuan dichat cak Takon untuk mengetahui sampai mana proses permohonan"
+Biaya Dokumen,Perubahan Peristiwa Penting,Akta Kematian Luar Kota Surabaya,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Perubahan Biodata Tanpa Pengadilan Negeri (PN),Akta Kelahiran Kota Surabaya,Website KLAMPID v2,"Persyaratan Perubahan Biodata Tanpa PN (Akta Kelahiran Kota Surabaya):
+1.        Akta Kelahiran
+2.        Kartu Keluarga Asli
+3.        KTP Asli 
+4.        Berkas Penunjang Perubahan 1 (Ijazah Akhir Sampai Awal, Surat Nikah, dll)
+5.        Berkas Penunjang Perubahan 2 (Ijazah Akhir Sampai Awal, Surat Nikah, dll) 
+6.        Berkas Penunjang Perubahan 3 (Ijazah Akhir Sampai Awal, Surat Nikah, dll)
+7.        Berkas Penunjang Perubahan 4 (Ijazah Akhir Sampai Awal, Surat Nikah, dll) "
+Panduan Layanan,Perubahan Biodata Tanpa Pengadilan Negeri (PN),Akta Kelahiran Kota Surabaya,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2.        Pilih menu layanan
+3.        Pilih layanan ""Perubahan Biodata (Akta Kelahiran)
+4.        Klik ""Lanjutkan""
+5.        Menjawab pertanyaan Cak Takon
+6.        Hingga muncul tulisan bahwa Anda sedang mengajukan permohonan Perubahan Biodata Tanpa PN (Akta Kelahiran). Setelah itu, Anda disarankan untuk membaca “Terms and Condition” serta “Privacy Policy”, lalu klik “Ya, lanjutkan”
+7.        Mengisi formulir permohonan pada Cak Takon
+8.        Mengisi Data Pelapor, mulai dari NIK Pelapor hingga membubuhkan tanda tangan, lalu klik “Simpan Data”
+9.        Mengisi Data Akta Semula, mulai dari NIK hingga Nama Ibu, lalu klik “Simpan Data”
+10.        Mengisi Data Akta Perubahan Menjadi, mulai dari Nama Lengkap Menjadi hingga Nama Ibu, lalu klik “Simpan Data”
+11.        Setelah Data Pelapor, Data Akta Semula, dan Data Akta Perubahan Menjadi telah diisi, maka selanjutnya Cak Takon akan meminta Anda untuk mengunggah dokumen persyaratan
+12.        Dokumen yang dibutuhkan pada layanan Perubahan Biodata tanpa PN (Akta Kelahiran Kota Surabaya) antara lain: Akta Kelahiran, Kartu Keluarga Asli, KTP Asli, Berkas Penunjang Perubahan 1 (Ijazah Akhir Sampai Awal, Surat Nikah, dll), Berkas Penunjang Perubahan 2 (Ijazah Akhir Sampai Awal, Surat Nikah, dll), Berkas Penunjang Perubahan 3 (Ijazah Akhir Sampai Awal, Surat Nikah, dll), dan Berkas Penunjang Perubahan 4 (Ijazah Akhir Sampai Awal, Surat Nikah, dll)
+13.        Setelah selesai mengunggah dokumen, maka klik simpan dan tutup
+14.        Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir
+15.        Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil"
+Biaya Dokumen,Perubahan Biodata Tanpa Pengadilan Negeri (PN),Akta Kelahiran Kota Surabaya,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Perubahan Peristiwa Penting,Akta Kelahiran Kota Surabaya,Website KLAMPID v2,"Persyaratan Perubahan Peristiwa Penting (Akta Kelahiran Kota Surabaya):
+1.        Kartu Keluarga Asli
+2.        KTP Asli
+3.        Akta Kelahiran
+4.        Legalisir Penetapan Pengadilan Negeri
+5.        Legalisir Presidium Kabinet
+6.        Legalisir Kemenkumham
+7.        Surat Konfirmasi Keabsahan Luar Kota
+8.        Bukti Denda"
+Panduan Layanan,Perubahan Peristiwa Penting,Akta Kelahiran Kota Surabaya,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app 
+2.        Pilih menu layanan
+3.        Pilih layanan ""Perubahan Biodata (Akta Kelahiran)
+4.        Klik ""Lanjutkan""
+5.        Menjawab pertanyaan Cak Takon
+6.        Setelah itu mengisi formulir permohonan pada Cak Takon
+7.        Mengisi data pelapor, mulai dari NIK Pelapor hingga membubuhkan tanda tangan, lalu klik “Simpan Data”
+8.        Mengisi Data Akta Semula, mulai dari Kota Cetak Akta hingga Nama Ibu, lalu klik “Simpan Data”
+9.        Mengisi Data Akta Perubahan Menjadi, mulai dari Nama Lengkap Menjadi hingga Instansi yang Mengeluarkan Dokumen Pendukung, lalu klik “Simpan Data”
+10.        Setelah Data Pelapor, Data Akta Semula, dan Data Akta Perubahan Menjadi telah diisi, maka selanjutnya Cak Takon akan meminta Anda untuk mengunggah dokumen persyaratan
+11.        Dokumen yang dibutuhkan pada layanan Perubahan Peristiwa Penting (Akta Kelahiran Kota Surabaya) antara lain: Kartu Keluarga Asli, KTP Asli, Akta Kelahiran, Legalisir Penetapan Pengadilan Negeri (opsional), Legalisir Presidium Kabinet (opsional), Legalisir Kemenkumham (opsional), Surat Konfirmasi Keabsahan Luar Kota (opsional), Bukti Denda (opsional)
+12.        Setelah selesai mengunggah dokumen, maka klik simpan dan tutup
+13.        Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir
+14.        Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil"
+Biaya Dokumen,Perubahan Peristiwa Penting,Akta Kelahiran Kota Surabaya,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Perubahan Biodata Tanpa Tanpa Pengadilan Negeri (PN),Akta Kelahiran Luar Kota Surabaya,Website KLAMPID v2,"Persyaratan Perubahan Biodata Tanpa PN (Akta Kelahiran Luar Kota Surabaya):
+1.        Akta Kelahiran
+2.        Kartu Keluarga Asli
+3.        KTP Asli
+4.        Berkas Penunjang Perubahan 1 (Ijazah Akhir Sampai Awal, Surat Nikah, dll)
+5.        Berkas Penunjang Perubahan 2 (Ijazah Akhir Sampai Awal, Surat Nikah, dll) 
+6.        Berkas Penunjang Perubahan 3 (Ijazah Akhir Sampai Awal, Surat Nikah, dll)
+7.        Berkas Penunjang Perubahan 4 (Ijazah Akhir Sampai Awal, Surat Nikah, dll) "
+Panduan Layanan,Perubahan Biodata Tanpa Tanpa Pengadilan Negeri (PN),Akta Kelahiran Luar Kota Surabaya,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pilih menu layanan ""Perubahan Biodata (Akta Kelahiran)
+3.        Klik ""Lanjutkan"" 
+4.        Menjawab pertanyaan Cak Takon
+5.        Setelah itu mengisi formulir permohonan pada Cak Takon 
+6.        Hingga muncul tulisan bahwa Anda sedang mengajukan permohonan Perubahan Biodata Tanpa PN (Akta Kelahiran Luar Kota Surabaya). Setelah itu, Anda disarankan untuk membaca “Terms and Condition” serta “Privacy Policy”, lalu klik “Ya, lanjutkan”
+7.        Mengisi data pelapor, mulai dari NIK Pelapor hingga membubuhkan tanda tangan, lalu klik “Simpan Data”
+8.        Mengisi Data Akta Semula, mulai dari NIK hingga Nama Ibu, lalu klik “Simpan Data”
+9.        Mengisi Data Akta Perubahan Menjadi, mulai dari Nama Lengkap Menjadi hingga Instansi yang Mengeluarkan Dokumen Pendukung, lalu klik “Simpan Data”
+10.        Setelah Data Pelapor, Data Akta Semula, dan Data Akta Perubahan Menjadi telah diisi, maka selanjutnya Cak Takon akan meminta Anda untuk mengunggah dokumen persyaratan
+11.        Dokumen yang dibutuhkan pada layanan Perubahan Biodata tanpa PN (Akta Kelahiran Luar Kota Surabaya) antara lain: Akta Kelahiran, Kartu Keluarga Asli, KTP Asli, Surat Konfirmasi Keabsahan Luar Kota, Berkas Penunjang Perubahan 1 (Ijazah Akhir Sampai Awal, Surat Nikah, dll), Berkas Penunjang Perubahan 2 (Ijazah Akhir Sampai Awal, Surat Nikah, dll), Berkas Penunjang Perubahan 3 (Ijazah Akhir Sampai Awal, Surat Nikah, dll), dan Berkas Penunjang Perubahan 4 (Ijazah Akhir Sampai Awal, Surat Nikah, dll)
+12.        Setelah selesai mengunggah dokumen, maka klik simpan dan tutup
+13.        Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir
+14.        Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil"
+Biaya Dokumen,Perubahan Biodata Tanpa Tanpa Pengadilan Negeri (PN),Akta Kelahiran Luar Kota Surabaya,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Perubahan Peristiwa Penting,Akta Kelahiran Luar Kota Surabaya,Website KLAMPID v2,"Persyaratan Perubahan Peristiwa Penting (Akta Kelahiran Luar Kota Surabaya):
+1.        Kartu Keluarga Asli
+2.        KTP Asli
+3.        Akta Kelahiran
+4.        Legalisir Penetapan Pengadilan Negeri
+5.        Legalisir Presidium Kabinet
+6.        Legalisir Kemenkumham
+7.        Surat Konfirmasi Keabsahan Luar Kota
+8.        Bukti Denda"
+Panduan Layanan,Perubahan Peristiwa Penting,Akta Kelahiran Luar Kota Surabaya,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pilih menu layanan ""Perubahan Biodata (Akta Kelahiran)
+3.        Klik ""Lanjutkan"" 
+4.        Menjawab pertanyaan Cak Takon
+5.        Setelah itu mengisi formulir permohonan pada Cak Takon 
+6.        Hingga muncul tulisan bahwa Anda sedang mengajukan permohonan Perubahan Biodata Tanpa PN (Akta Kelahiran Luar Kota Surabaya). Setelah itu, Anda disarankan untuk membaca “Terms and Condition” serta “Privacy Policy”, lalu klik “Ya, lanjutkan”
+7.        Mengisi data pelapor, mulai dari NIK Pelapor hingga membubuhkan tanda tangan, lalu klik “Simpan Data”
+8.        Mengisi Data Akta Semula, mulai dari Kota Cetak Akta hingga Nama Ibu, lalu klik “Simpan Data”
+9.        Mengisi Data Akta Perubahan Menjadi, mulai dari Nama Lengkap Menjadi hingga Nama Ibu, lalu klik “Simpan Data”
+10.        Setelah Data Pelapor, Data Akta Semula, dan Data Akta Perubahan Menjadi telah diisi, maka selanjutnya Cak Takon akan meminta Anda untuk mengunggah dokumen persyaratan
+11.        Dokumen yang dibutuhkan pada layanan Perubahan Peristiwa Penting (Akta Kelahiran Luar Kota Surabaya) antara lain: Kartu Keluarga Asli, KTP Asli, Akta Kelahiran, Legalisir Penetapan Pengadilan Negeri (opsional), Legalisir Presidium Kabinet (opsional), Legalisir Kemenkumham (opsional), Surat Konfirmasi Keabsahan Luar Kota, Bukti Denda (opsional)
+12.        Setelah selesai mengunggah dokumen, maka klik simpan dan tutup
+13.        Setelah dokumen telah berhasil terupload, maka Cak Takon akan memberikan bukti e-kitir
+14.        Pemohon bisa mendownload e-kitir sebagai bukti bahwa permohonan berhasil"
+Biaya Dokumen,Perubahan Peristiwa Penting,Akta Kelahiran Luar Kota Surabaya,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Kelahiran Luar Kota Surabaya (Pemilik dokumen Luar Surabaya) ,Website KLAMPID v2,"Persyaratan Legalisir Akta Kelahiran (Pemilik dokumen LUAR SURABAYA dan Akta Kelahiran terbitan LUAR SURABAYA):
+1.        Akta Lahir (JPG)
+2.        Surat Kuasa (PDF/JPG) 
+3.        Surat Keabsahan Dari Kota Asal (PDF/JPG)"
+Panduan Layanan,Legalisir,Akta Kelahiran Luar Kota Surabaya (Pemilik dokumen Luar Surabaya) ,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Kelahiran Luar Kota Surabaya (Pemilik dokumen Luar Surabaya) ,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Kelahiran Kota Surabaya (Pemilik dokumen Luar Surabaya) ,Website KLAMPID v2,"Persyaratan Legalisir Akta Kelahiran (Pemilik dokumen LUAR SURABAYA dan Akta Kelahiran terbitan SURABAYA)
+1.        Akta Lahir (JPG)
+2.        Surat Kuasa (PDF/JPG)
+3.        Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) Bermaterai (PDF/JPG) *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Panduan Layanan,Legalisir,Akta Kelahiran Kota Surabaya (Pemilik dokumen Luar Surabaya) ,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Kelahiran Kota Surabaya (Pemilik dokumen Luar Surabaya) ,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Kelahiran Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Persyaratan Legalisir Akta Kelahiran (Pemilik dokumen SURABAYA dan Akta Kelahiran terbitan LUAR SURABAYA):
+1.        Akta Lahir (JPG)
+2.        Surat Keabsahan Dari Kota Asal (PDF/JPG)"
+Panduan Layanan,Legalisir,Akta Kelahiran Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA , lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Kelahiran Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Kelahiran Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Persyaratan Legalisir Akta Kelahiran (Pemilik dokumen SURABAYA dan Akta Kelahiran terbitan SURABAYA):
+1.        Akta Lahir (JPG)
+2.        Surat Pernyataan Tanggung Jawab Mutlak bermatrai (SPTJM)-(PDF/JPG) **format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Panduan Layanan,Legalisir,Akta Kelahiran Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Kelahiran Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Kematian Luar Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Persyaratan Legalisir Akta Kematian (Pemilik dokumen LUAR SURABAYA dan Akta Kematian terbitan LUAR SURABAYA):
+1.        Akta Kematian (JPG)
+2.        Surat Keabsahan (JPG)
+3.        Surat Kuasa (PDF)"
+Panduan Layanan,Legalisir,Akta Kematian Luar Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Kematian Luar Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Kematian Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Persyaratan Legalisir Akta Kematian (Pemilik dokumen LUAR SURABAYA dan Akta Kematian terbitan SURABAYA):
+1.        Akta Kematian (JPG)
+2.        Surat Keabsahan (JPG)
+3.        Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) Bermaterai (PDF/JPG) **format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM
+"
+Panduan Layanan,Legalisir,Akta Kematian Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA. lalu tekan tombol yang sesuai dengan permohonan Anda
+"
+Biaya Dokumen,Legalisir,Akta Kematian Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Kematian Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Persyaratan Legalisir Akta Kematian (Pemilik dokumen SURABAYA dan Akta Kematian terbitan LUAR SURABAYA):
+1.        Akta Kematian (JPG)
+2.        Surat Keabsahan (JPG)"
+Panduan Layanan,Legalisir,Akta Kematian Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Kematian Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Kematian Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Persyaratan Legalisir Akta Kematian (Pemilik dokumen SURABAYA dan Akta Kematian terbitan SURABAYA):
+1.        Akta Kematian (JPG)
+2.        Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) Bermaterai (PDF/JPG) *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Panduan Layanan,Legalisir,Akta Kematian Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Kematian Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Perceraian Luar Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Persyaratan Legalisir Akta Perceraian (Pemilik dokumen LUAR SURABAYA dan Akta Perceraian terbitan LUAR SURABAYA):
+1.        Akta Perceraian (JPG)
+2.        Surat Kuasa (PDF)
+3.        Surat Keabsahan (JPG)"
+Panduan Layanan,Legalisir,Akta Perceraian Luar Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Perceraian Luar Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Perceraian Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Persyaratan Legalisir Akta Perceraian (Pemilik dokumen LUAR SURABAYA dan Akta Perceraian terbitan SURABAYA):
+1.        Akta Perceraian (JPG)
+2.        Surat Kuasa (PDF)
+3.        Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) Bermaterai (PDF/JPG) *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Panduan Layanan,Legalisir,Akta Perceraian Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Perceraian Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Perceraian Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Persyaratan Legalisir Akta Perceraian (Pemilik dokumen SURABAYA dan Akta Perceraian terbitan LUAR SURABAYA):
+1.        Akta Perceraian (JPG)
+2.        Surat Keabsahan (PDF/JPG)"
+Panduan Layanan,Legalisir,Akta Perceraian Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Perceraian Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)
+"
+Persyaratan Dokumen,Legalisir,Akta Perceraian Kota Surabaya (Pemilik dokumen Surabaya) ,Website KLAMPID v2,"Persyaratan Legalisir Akta Perceraian (Pemilik dokumen SURABAYA dan Akta Perceraian terbitan SURABAYA):
+1.        Akta Perceraian (JPG)
+2.        Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) bermatrai (PDF/JPG) *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Panduan Layanan,Legalisir,Akta Perceraian Kota Surabaya (Pemilik dokumen Surabaya) ,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Perceraian Kota Surabaya (Pemilik dokumen Surabaya) ,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Perkawinan Luar Kota Surabaya (Pemilik dokumen Surabaya) ,Website KLAMPID v2,"Persyaratan Legalisir Akta Perkawinan (Pemilik dokumen SURABAYA dan Akta Perkawinan terbitan LUAR SURABAYA):
+1.        Akta Perkawinan (JPG)
+2.        Surat Keabsahan (PDF/JPG)
+"
+Panduan Layanan,Legalisir,Akta Perkawinan Luar Kota Surabaya (Pemilik dokumen Surabaya) ,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Akta Perkawinan Luar Kota Surabaya (Pemilik dokumen Surabaya) ,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Perkawinan Kota Surabaya (Pemilik dokumen Surabaya) ,Website KLAMPID v2,"Persyaratan Legalisir Akta Perkawinan (Pemilik dokumen SURABAYA dan Akta Perkawinan terbitan SURABAYA): 
+1.        Akta Perkawinan (JPG)
+2.        Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) Bermaterai (PDF/JPG) *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Panduan Layanan,Legalisir,Akta Perkawinan Kota Surabaya (Pemilik dokumen Surabaya) ,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda
+"
+Biaya Dokumen,Legalisir,Akta Perkawinan Kota Surabaya (Pemilik dokumen Surabaya) ,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Akta Perkawinan Kota Surabaya (Pemilik dokumen Luar Surabaya) ,Website KLAMPID v2,"Persyaratan Keabsahan Akta Perkawinan (Pemilik dokumen LUAR SURABAYA dan Akta Perkawinan SURABAYA): 
+1. Akta 
+2. KK/KTP Pemilik Akta 
+3. KTP Pelapor 
+4. Surat Kuasa"
+Panduan Layanan,Legalisir,Akta Perkawinan Kota Surabaya (Pemilik dokumen Luar Surabaya) ,Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda
+"
+Biaya Dokumen,Legalisir,Akta Perkawinan Kota Surabaya (Pemilik dokumen Luar Surabaya) ,Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Kartu Keluarga (KK),Website KLAMPID v2,"Persyaratan Legalisir KK (Kartu Keluarga):
+1.        KK (Kartu Keluarga) - (JPG)"
+Panduan Layanan,Legalisir,Kartu Keluarga (KK),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Kartu Keluarga (KK),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Kartu Tanda Pengenal Warga Negara Asing (KTP WNA),Website KLAMPID v2,"Persyaratan Legalisir KTP OA (Orang Asing):
+1.        KTP WNA (Warga Negara Asing) (JPG)"
+Panduan Layanan,Legalisir,Kartu Tanda Pengenal Warga Negara Asing (KTP WNA),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Kartu Tanda Pengenal Warga Negara Asing (KTP WNA),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Legalisir,Kartu Keluarga Warga Negara Asing (KK WNA),Website KLAMPID v2,"Persyaratan Legalisir KK OA (Orang Asing):
+1.        KK WNA (Warga Negara Asing) (JPG)"
+Panduan Layanan,Legalisir,Kartu Keluarga Warga Negara Asing (KK WNA),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Akan muncul pertanyaan dari Cak Takon dan JAWAB SESUAI KEADAAN PERMOHONAN ANDA, lalu tekan tombol yang sesuai dengan permohonan Anda"
+Biaya Dokumen,Legalisir,Kartu Keluarga Warga Negara Asing (KK WNA),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Kelahiran Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Persyaratan Keabsahan Akta Kelahiran (Pemilik dokumen LUAR SURABAYA dan Akta Kelahiran SURABAYA):
+1.        Form Permohonan Akta Kelahiran / Konfirmasi Akta Kelahiran (format ada di halaman terakhir)
+2.        Akta
+3.        KK/KTP Pemilik Akta
+4.        KTP Pelapor
+5.        Surat Kuasa
+6.        Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) Kelahiran Bermaterai (Untuk Kelahiran Di bawah 2003)"
+Panduan Layanan,Keabsahan,Akta Kelahiran Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.        *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Biaya Dokumen,Keabsahan,Akta Kelahiran Kota Surabaya (Pemilik dokumen Luar Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Kelahiran Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Persyaratan Keabsahan Akta Kelahiran (Pemilik dokumen SURABAYA dan Akta Kelahiran LUAR SURABAYA):
+1.        Form Permohonan Akta Kelahiran / Konfirmasi Akta Kelahiran (format ada di halaman terakhir)
+2.        Akta
+3.        KK/KTP Pemilik Akta
+4.        4. KTP Pelapor"
+Panduan Layanan,Keabsahan,Akta Kelahiran Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.        *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Biaya Dokumen,Keabsahan,Akta Kelahiran Luar Kota Surabaya (Pemilik dokumen Surabaya),Website KLAMPID v2,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Kelahiran Kota Surabaya (Pemilik dokumen Surabaya) ,,"Persyaratan Keabsahan Akta Kelahiran (Pemilik dokumen SURABAYA dan Akta Kelahiran SURABAYA):
+1.        Form Permohonan Akta Kelahiran / Konfirmasi Akta Kelahiran (format ada di halaman terakhir)
+2.        Akta
+3.        KK/KTP Pemilik Akta
+4.        KTP Pelapor
+5.        SPTJM Kelahiran Bermaterai (Untuk Kelahiran Di bawah 2003, *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM)"
+Panduan Layanan,Keabsahan,Akta Kelahiran Kota Surabaya (Pemilik dokumen Surabaya) ,,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.        Format Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) ada di halaman terakhir buku panduan"
+Biaya Dokumen,Keabsahan,Akta Kelahiran Kota Surabaya (Pemilik dokumen Surabaya) ,,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Kematian Kota Surabaya (Pemilik dokumen Luar Surabaya) ,,"Persyaratan Keabsahan Akta Kematian (Pemilik dokumen LUAR SURABAYA dan Akta Kematian SURABAYA):
+1.        Form Permohonan Akta Kematian / Konfirmasi Akta Kematian (format ada di halaman terakhir)
+2.        Akta
+3.        KK/KTP Pemilik Akta
+4.        KTP Pelapor
+5.        Surat Kuasa
+6.        SPTJM Kematian Bermaterai (Untuk Kelahiran Di bawah 2003, *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM)"
+Panduan Layanan,Keabsahan,Akta Kematian Kota Surabaya (Pemilik dokumen Luar Surabaya) ,,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.        Format Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) ada di halaman terakhir buku panduan
+"
+Biaya Dokumen,Keabsahan,Akta Kematian Kota Surabaya (Pemilik dokumen Luar Surabaya) ,,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Kematian Luar Kota Surabaya (Pemilik dokumen Surabaya) ,,"Persyaratan Keabsahan Akta Kematian (Pemilik dokumen SURABAYA dan Akta Kematian LUAR SURABAYA):
+1.        Form Permohonan Akta Kematian / Konfirmasi Akta Kematian (format ada di halaman terakhir)
+2.        Akta
+3.        KK/KTP Pemilik Akta
+4.        KTP Pelapor"
+Panduan Layanan,Keabsahan,Akta Kematian Luar Kota Surabaya (Pemilik dokumen Surabaya) ,,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.       *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Biaya Dokumen,Keabsahan,Akta Kematian Luar Kota Surabaya (Pemilik dokumen Surabaya) ,,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Kematian Kota Surabaya (Pemilik dokumen Surabaya) ,,"Persyaratan Keabsahan Akta Kematian (Pemilik dokumen SURABAYA dan Akta Kematian SURABAYA):
+1.        Form Permohonan Akta Kematian / Konfirmasi Akta Kematian (format ada di halaman terakhir)
+2.        Akta
+3.        KK/KTP Pemilik Akta
+4.        KTP Pelapor
+5.        SPTJM Kematian Bermaterai (Untuk Kelahiran Di bawah 2003, *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM)"
+Panduan Layanan,Keabsahan,Akta Kematian Kota Surabaya (Pemilik dokumen Surabaya) ,,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.        Format Surat Pernyataan Tanggung Jawab Mutlak (SPTJM) ada di halaman terakhir buku panduan"
+Biaya Dokumen,Keabsahan,Akta Kematian Kota Surabaya (Pemilik dokumen Surabaya) ,,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Perceraian Kota Surabaya (Pemilik dokumen Luar Surabaya) ,,"Persyaratan Keabsahan Akta Perceraian (Pemilik dokumen LUAR SURABAYA dan Akta Perceraian SURABAYA):
+1.        Akta
+2.        KK/KTP Pemilik Akta
+3.        KTP Pelapor
+4.        Surat Kuasa"
+Panduan Layanan,Keabsahan,Akta Perceraian Kota Surabaya (Pemilik dokumen Luar Surabaya) ,,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.        *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Biaya Dokumen,Keabsahan,Akta Perceraian Kota Surabaya (Pemilik dokumen Luar Surabaya) ,,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Perceraian Luar Kota Surabaya (Pemilik dokumen Surabaya) ,,"Persyaratan Keabsahan Akta Perceraian (Pemilik dokumen SURABAYA dan Akta Perceraian LUAR SURABAYA):
+1.        Akta
+2.        KK/KTP Pemilik Akta
+3.        KTP Pelapor"
+Panduan Layanan,Keabsahan,Akta Perceraian Luar Kota Surabaya (Pemilik dokumen Surabaya) ,,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.       *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Biaya Dokumen,Keabsahan,Akta Perceraian Luar Kota Surabaya (Pemilik dokumen Surabaya) ,,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Perceraian Kota Surabaya (Pemilik dokumen Surabaya),,"Persyaratan Keabsahan Akta Perceraian (Pemilik dokumen SURABAYA dan Akta Perceraian  SURABAYA):
+1.        Akta
+2.        KK/KTP Pemilik Akta
+3.        KTP Pelapor"
+Panduan Layanan,Keabsahan,Akta Perceraian Kota Surabaya (Pemilik dokumen Surabaya),,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.        *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Biaya Dokumen,Keabsahan,Akta Perceraian Kota Surabaya (Pemilik dokumen Surabaya),,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Perkawinan Kota Surabaya (Pemilik dokumen Surabaya) ,,"Persyaratan Keabsahan Akta Perkawinan (Pemilik dokumen SURABAYA dan Akta Perkawinan SURABAYA):
+1.        Akta
+2.        KK/KTP Pemilik Akta
+3.        KTP Pelapor"
+Panduan Layanan,Keabsahan,Akta Perkawinan Kota Surabaya (Pemilik dokumen Surabaya) ,,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.        *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Biaya Dokumen,Keabsahan,Akta Perkawinan Kota Surabaya (Pemilik dokumen Surabaya) ,,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Perkawinan Luar Surabaya (Pemilik dokumen Surabaya) ,,"Persyaratan Keabsahan Akta Perkawinan (Pemilik dokumen SURABAYA dan Akta Perkawinan LUAR SURABAYA):
+1.        Akta
+2.        KK/KTP Pemilik Akta
+3.        KTP Pelapor"
+Panduan Layanan,Keabsahan,Akta Perkawinan Luar Surabaya (Pemilik dokumen Surabaya) ,,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.        *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM
+"
+Biaya Dokumen,Keabsahan,Akta Perkawinan Luar Surabaya (Pemilik dokumen Surabaya) ,,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Persyaratan Dokumen,Keabsahan,Akta Perkawinan Kota Surabaya (Pemilik dokumen Luar Surabaya),,"Persyaratan Keabsahan Akta Perkawinan (Pemilik dokumen LUAR SURABAYA dan Akta Perkawinan  SURABAYA):
+1.        Akta
+2.        KK/KTP Pemilik Akta
+3.        KTP Pelapor
+4.        Surat Kuasa"
+Panduan Layanan,Keabsahan,Akta Perkawinan Kota Surabaya (Pemilik dokumen Luar Surabaya),,"Sistem, Mekanisme, dan Prosedur:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, Tekan Tombol Keabsahan
+3.        Sebelum melanjutkan, akan muncul buku panduan
+4.        Ikuti arahan yang ada di buku panduan tersebut sesuai dengan permohonan anda
+5.       *format surat: https://intip.in/FormatSURATPERNYATAANTANGGUNGJAWABMUTLAKSPTJM"
+Biaya Dokumen,Keabsahan,Akta Perkawinan Kota Surabaya (Pemilik dokumen Luar Surabaya),,"Biaya:
+Tidak dipungut biaya (Gratis)"
+Panduan Layanan,Permohonan,Akta Kelahiran,,"Sistem, Mekanisme, dan Prosedur Permohonan Akta Kelahiran:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Akta Kelahiran' kemudian klik 'Lanjutkan'
+"
+Panduan Layanan,Permohonan,Akta Kematian,,"Sistem, Mekanisme, dan Prosedur Permohonan Akta Kematian:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Akta Kematian' kemudian klik 'Lanjutkan'"
+Panduan Layanan,Permohonan,Akta Pengesahan Anak,,"Sistem, Mekanisme, dan Prosedur Permohonan Akta Pengesahan Anak:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Akta Pengesahan Anak' kemudian klik 'Lanjutkan'
+"
+Panduan Layanan,Permohonan,Pengakuan Anak,,"Sistem, Mekanisme, dan Prosedur Permohonan Pengakuan Anak:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Akta Pengakuan Anak' kemudian klik 'Lanjutkan'
+"
+Panduan Layanan,Permohonan,Pengangkatan Anak,,"Sistem, Mekanisme, dan Prosedur Permohonan Pengangkatan Anak:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Pengangkatan Anak' kemudian klik 'Lanjutkan'
+"
+Panduan Layanan,Permohonan,Cetak Ulang Kartu Keluarga,,"Sistem, Mekanisme, dan Prosedur Permohonan Cetak Ulang Kartu Keluarga:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Cetak Ulang Kartu Keluarga' kemudian klik 'Lanjutkan'
+"
+Panduan Layanan,Permohonan,Pindah Keluar,,"Sistem, Mekanisme, dan Prosedur Permohonan Pindah Keluar:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Pindah Keluar' kemudian klik 'Lanjutkan'"
+Panduan Layanan,Permohonan,Pemutakhiran Gelar,,"Sistem, Mekanisme, dan Prosedur Permohonan Pemutakhiran Gelar:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Pemutakhiran Gelar' kemudian klik 'Lanjutkan'"
+Panduan Layanan,Permohonan,Perubahan Biodata,,"Sistem, Mekanisme, dan Prosedur Permohonan Perubahan Biodata:
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Perubahan Biodata' kemudian klik 'Lanjutkan'
+"
+Panduan Layanan,Permohonan,SKTT / KK OA / Pindah Keluar OA / Exit Permit Only ( EPO ),,"Sistem, Mekanisme, dan Prosedur Permohonan Permohonan SKTT / KK OA / Pindah Keluar OA / Exit Permit Only ( EPO ):
+1.        Ketik link website https://v2.klampid.disdukcapilsurabaya.id/app
+2.        Pada Halaman Layanan, pilih layanan 'Permohonan SKTT / KK OA / Pindah Keluar OA / Exit Permit Only ( EPO )' kemudian klik 'Lanjutkan'"
