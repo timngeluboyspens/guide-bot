@@ -1,10 +1,11 @@
 import os
+import re
 from typing import Final
 from telegram import Update
 from telegram.ext import ApplicationBuilder
 from telegram.ext import CommandHandler, MessageHandler, filters, ContextTypes
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
-from app.bot import create_conversational_chain, conversation_chat, load_vector_store 
+from app.bot import create_conversational_chain, conversation_chat, generate_answer, load_vector_store, load_static_vector_store, load_static_data, get_welcome_message, get_profile_info, generate_questions_message
 
 class TelegramBot:
     def __init__(self, token: str, username: str):
@@ -13,9 +14,12 @@ class TelegramBot:
         # self.app = Application.builder().token(self.TOKEN).build()
         self.app = ApplicationBuilder().token(self.TOKEN).build()
         
-        # Load embeddings and vector store
+        # Load menu data
+        self.menu_data = load_static_data('menu')
+        
+        # Load embeddings and vector store    
         self.embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'})
-        self.vector_store = load_vector_store(self.embeddings)
+        self.vector_store = load_static_vector_store(self.embeddings)
 
         # Create the conversational chain
         self.conversational_chain = create_conversational_chain(self.vector_store)
@@ -24,7 +28,34 @@ class TelegramBot:
         self.history = []
 
     async def start_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        await update.message.reply_text('Hello! Thanks for chatting with me. I am your bot!')
+        await update.message.reply_text(get_welcome_message(), parse_mode='HTML')
+
+    def handle_profile_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        return update.message.reply_text(get_profile_info(), parse_mode='HTML')
+
+    def handle_question_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        command = update.message.text.lower()
+        
+        pattern = r'^/([a-z_]+)(?:_p_([1-9]\d*))?$'
+        match = re.match(pattern, command)
+        
+        category = match.group(1)
+        page = int(match.group(2)) if match.group(2) else 1
+
+        response = generate_questions_message(self.menu_data, category, page)
+        return update.message.reply_text(response, parse_mode='HTML')
+
+    def handle_answer_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        command = update.message.text.lower()
+
+        pattern = r'^/([a-z_]+)_([1-9]\d*)$'
+        match = re.match(pattern, command)
+
+        category = match.group(1)
+        index = int(match.group(2))
+
+        response = generate_answer(self.menu_data, category, index)
+        return update.message.reply_text(response, parse_mode='HTML')
 
     def handle_response(self, query: str) -> str:
         # Use the conversational chain to handle the query
@@ -56,6 +87,24 @@ class TelegramBot:
     def add_handlers(self):
         # Tambahkan handler untuk perintah
         self.app.add_handler(CommandHandler("start", self.start_command))
+
+        # Tambahkan handler untuk perintah /profile
+        self.app.add_handler(CommandHandler("profile", self.handle_profile_command))
+
+        # Tambahkan handler untuk perintah /kependudukan, /non_kependudukan, /lainnya
+        self.app.add_handler(
+            MessageHandler(
+                filters.Regex(r'^/(?:kependudukan|non_kependudukan|lainnya)(?:_p_[1-9]+\d*)?$'),
+                self.handle_question_command
+            )
+        )
+
+        self.app.add_handler(
+            MessageHandler(
+                filters.Regex(r'^/(?:kependudukan|non_kependudukan|lainnya)_\d+$'),
+                self.handle_answer_command
+            )
+        )
 
         # Tambahkan handler untuk pesan teks
         self.app.add_handler(MessageHandler(filters.TEXT, self.handle_message))
