@@ -52,7 +52,7 @@ class TelegramBot:
         match = re.match(pattern, command)
 
         category = match.group(1)
-        index = int(match.group(2))
+        index = int(match.group(2)) - 1
 
         response = generate_answer(self.menu_data, category, index)
         return update.message.reply_text(response, parse_mode='HTML')

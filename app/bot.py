@@ -283,7 +283,7 @@ def load_vector_store(embeddings):
     vector_store = Chroma(
         collection_name="chatbot",
         embedding_function=embeddings or HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={'device': 'cpu'}), 
-        persist_directory="vector_store"
+        persist_directory="static_vector_store"
     )
     return vector_store
 
